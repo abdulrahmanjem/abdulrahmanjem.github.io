@@ -46,6 +46,7 @@ body {
 nav a {
     position: relative;
     padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -105,4 +106,23 @@ nav a:hover::after {
 
 .dark nav a::after {
     background: #60a5fa;
+}
+
+/* تحسين النصوص */
+.dark p {
+    color: #cbd5e1;
+}
+
+/* تحسين الأزرار */
+button, a {
+    transition: all 0.25s ease;
+}
+
+/* تأثيرات إضافية */
+.shadow-soft {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.dark .shadow-soft {
+    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
 }
