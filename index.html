@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | معرض أعمالي</title>
-
+    <title>Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -32,52 +27,51 @@
             }
         }
     </script>
-
     <style>
-        :root { --font-main: 'Poppins', sans-serif; }
-        html[lang="ar"] { --font-main: 'Cairo', sans-serif; }
+        :root { --font-main: 'Cairo', sans-serif; }
+        html[lang="en"] { --font-main: 'Poppins', sans-serif; }
         body { font-family: var(--font-main); transition: background-color 0.3s, color 0.3s; }
         .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
         .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .logo-container img { transition: opacity 0.3s ease-in-out; }
+        
+        /* Logo Transitions */
+        .logo-container img {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
-
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden">
 
     <!-- Header / Nav -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-
-            <!-- Logo -->
             <div class="logo-container h-12 flex items-center">
+                <!-- Day Mode Logo -->
                 <img src="22.png" id="logo-day" alt="Logo" class="h-full object-contain block dark:hidden">
+                <!-- Night Mode Logo -->
                 <img src="33.png" id="logo-night" alt="Logo" class="h-full object-contain hidden dark:block">
             </div>
-
+            
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center justify-between w-full max-w-xl">
-                <a href="#home" class="hover:text-primary transition font-medium">Home</a>
-                <a href="#about" class="hover:text-primary transition font-medium">About</a>
-                <a href="#skills" class="hover:text-primary transition font-medium">Skills</a>
-                <a href="#projects" class="hover:text-primary transition font-medium">Projects</a>
-                <a href="#contact" class="hover:text-primary transition font-medium">Contact</a>
+                <a href="#home" data-t="nav_home" class="hover:text-primary transition font-medium">الرئيسية</a>
+                <a href="#about" data-t="nav_about" class="hover:text-primary transition font-medium">عني</a>
+                <a href="#skills" data-t="nav_skills" class="hover:text-primary transition font-medium">المهارات</a>
+                <a href="#projects" data-t="nav_projects" class="hover:text-primary transition font-medium">المشاريع</a>
+                <a href="#contact" data-t="nav_contact" class="hover:text-primary transition font-medium">تواصل معي</a>
             </div>
 
             <!-- Controls -->
             <div class="flex items-center gap-3">
-
                 <!-- Language Toggle -->
                 <button id="lang-toggle" class="px-3 py-1 text-sm font-bold border border-slate-200 dark:border-slate-800 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
-                    AR
+                    EN
                 </button>
-
                 <!-- Theme Toggle -->
                 <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition">
                     <i data-lucide="sun" id="sun-icon" class="hidden w-5 h-5"></i>
                     <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
                 </button>
-
             </div>
         </div>
     </nav>
@@ -85,34 +79,177 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-            <!-- Text -->
             <div class="relative z-10 text-start">
-                <h2 class="text-primary font-bold text-lg mb-4">Abdulrahman Shunnar</h2>
-
+                <h2 data-t="hero_welcome" class="text-primary font-bold text-lg mb-4">عبدالرحمن شنار</h2>
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                    Creative <br> <span class="text-transparent bg-clip-text hero-gradient">Frontend Developer</span>
+                    <span data-t="hero_title">مطور واجهات</span> <br> <span class="text-transparent bg-clip-text hero-gradient" data-t="hero_accent">مبدع</span>
                 </h1>
-
-                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
-                    I build beautiful and functional digital web experiences with a strong focus on usability and performance.
+                <p data-t="hero_desc" class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
+                    أقوم ببناء تجارب ويب رقمية جميلة وعملية، مع التركيز التام على سهولة الاستخدام والأداء العالي.
                 </p>
-
                 <div class="flex gap-4">
-                    <a href="#projects" class="px-8 py-4 hero-gradient text-white rounded-xl font-bold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition flex items-center">
-                        View Projects
+                    <a href="#projects" class="px-8 py-4 hero-gradient text-white rounded-xl font-bold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition flex items-center gap-2">
+                        <span data-t="btn_projects">عرض أعمالي</span>
+                        <i data-lucide="arrow-left" id="btn-arrow" class="w-5 h-5"></i>
                     </a>
+                    <a href="#" data-t="btn_cv" class="px-8 py-4 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-slate-900 transition">سيرتي الذاتية</a>
                 </div>
             </div>
+            
+            <div class="relative flex justify-center items-center">
+                <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-[2.5rem] shadow-2xl z-10 border-8 border-white dark:border-slate-900">
+                    <!-- صورة الوضع النهاري -->
+<img src="day-photo.png"
+     class="w-full h-full object-cover dark:hidden">
 
-            <!-- Hero Image -->
-            <div class="relative">
-                <img src="day-photo.png" class="w-full h-full object-cover rounded-xl shadow-xl block dark:hidden">
-                <img src="night-photo.png" class="w-full h-full object-cover rounded-xl shadow-xl hidden dark:block">
+<!-- صورة الوضع الليلي -->
+<img src="night-photo.png"
+     class="w-full h-full object-cover hidden dark:block">
+
+                </div>
+                <div class="absolute -z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 dark:bg-blue-500/5 blur-[100px] rounded-full"></div>
             </div>
-
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white dark:bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-t="nav_about" class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">عني</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6 text-start">
+                    <h3 data-t="about_title" class="text-2xl font-bold">شغوف بتقديم الأفضل دائماً</h3>
+                    <p data-t="about_desc" class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                        أنا مطور واجهات مستخدم بخبرة في تحويل التصاميم المعقدة إلى مواقع تفاعلية وسريعة. أهتم جداً بالتفاصيل الصغيرة التي تصنع الفرق في تجربة المستخدم النهائية.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
+                            <span class="block text-3xl font-bold text-primary mb-1">5+</span>
+                            <span data-t="stat_exp" class="text-sm text-slate-500 italic">سنوات خبرة</span>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
+                            <span class="block text-3xl font-bold text-primary mb-1">50+</span>
+                            <span data-t="stat_proj" class="text-sm text-slate-500 italic">مشروع ناجح</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-48 rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" alt="Work" class="w-full h-full object-cover"></div>
+                    <div class="h-48 mt-12 rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400" alt="Coding" class="w-full h-full object-cover"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white dark:bg-slate-950 p-10 rounded-[2.5rem] shadow-xl border border-slate-100 dark:border-slate-800">
+                <h2 data-t="contact_title" class="text-3xl font-bold text-center mb-8">دعنا نعمل معاً</h2>
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2 text-start">
+                            <label data-t="form_name" class="text-sm font-bold opacity-70">الاسم بالكامل</label>
+                            <input type="text" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 outline-none border border-transparent focus:border-primary transition" placeholder="...">
+                        </div>
+                        <div class="space-y-2 text-start">
+                            <label data-t="form_email" class="text-sm font-bold opacity-70">البريد الإلكتروني</label>
+                            <input type="email" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 outline-none border border-transparent focus:border-primary transition" placeholder="...">
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-start">
+                        <label data-t="form_msg" class="text-sm font-bold opacity-70">رسالتك</label>
+                        <textarea rows="4" class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 outline-none border border-transparent focus:border-primary transition"></textarea>
+                    </div>
+                    <button data-t="btn_send" class="w-full py-4 hero-gradient text-white rounded-2xl font-bold shadow-lg transition-transform active:scale-95">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-900 text-center">
+        <p class="text-slate-500 italic" data-t="footer_copy">© 2026 جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Translations
+        const translations = {
+            ar: {
+                nav_home: "الرئيسية", nav_about: "عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_contact: "تواصل معي",
+                hero_welcome: "عبدالرحمن شنار", hero_title: "مطور واجهات", hero_accent: "مبدع",
+                hero_desc: "أقوم ببناء تجارب ويب رقمية جميلة وعملية، مع التركيز التام على سهولة الاستخدام والأداء العالي.",
+                btn_projects: "عرض أعمالي", btn_cv: "سيرتي الذاتية",
+                about_title: "شغوف بتقديم الأفضل دائماً", about_desc: "أنا مطور واجهات مستخدم بخبرة في تحويل التصاميم المعقدة إلى مواقع تفاعلية وسريعة. أهتم جداً بالتفاصيل الصغيرة التي تصنع الفرق في تجربة المستخدم النهائية.",
+                stat_exp: "سنوات خبرة", stat_proj: "مشروع ناجح",
+                contact_title: "دعنا نعمل معاً", form_name: "الاسم بالكامل", form_email: "البريد الإلكتروني", form_msg: "رسالتك", btn_send: "إرسال الرسالة",
+                footer_copy: "© 2026 جميع الحقوق محفوظة. صُمم بواسطة اسمك"
+            },
+            en: {
+                nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_projects: "Projects", nav_contact: "Contact",
+                hero_welcome: "Abdulrahman Shunnar", hero_title: "Creative Frontend", hero_accent: "Developer",
+                hero_desc: "I build beautiful and functional digital web experiences, focusing on usability and high performance.",
+                btn_projects: "View My Work", btn_cv: "Download CV",
+                about_title: "Passionate About Quality", about_desc: "I am a frontend developer experienced in turning complex designs into interactive, fast websites. I care about every small detail.",
+                stat_exp: "Years Experience", stat_proj: "Successful Projects",
+                contact_title: "Let's Work Together", form_name: "Full Name", form_email: "Email Address", form_msg: "Message", btn_send: "Send Message",
+                footer_copy: "© 2026 All Rights Reserved. Designed by YourName"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('lang-toggle').innerText = lang === 'ar' ? 'EN' : 'AR';
+            
+            // Update Text
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                el.innerText = translations[lang][key];
+            });
+
+            // Update Icon Flip
+            const arrow = document.getElementById('btn-arrow');
+            if (lang === 'en') {
+                arrow.setAttribute('data-lucide', 'arrow-right');
+            } else {
+                arrow.setAttribute('data-lucide', 'arrow-left');
+            }
+            lucide.createIcons();
+        }
+
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            updateLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            sunIcon.classList.toggle('hidden', !isDark);
+            moonIcon.classList.toggle('hidden', isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
 </body>
 </html>
