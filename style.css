@@ -8,42 +8,46 @@ body {
 
 /* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
 #theme-toggle {
-    perspective: 1000px; /* ليعطي عمقاً للتأثير ثلاثي الأبعاد */
+    perspective: 1000px; 
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px; /* يفضل تحديد عرض ثابت للزر */
+    height: 40px;
+    overflow: hidden;
 }
 
 #theme-toggle i {
-    display: none; /* إخفاء الأيقونات افتراضياً ليتحكم بها الـ CSS */
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    position: absolute; /* وضع الأيقونات فوق بعضها لضمان سلاسة الدوران */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     backface-visibility: hidden;
+    opacity: 0; /* إخفاء الأيقونة افتراضياً */
 }
 
-/* حالة وضع النهار (الافتراضي): تظهر أيقونة القمر وتختفي الشمس بدوران */
+/* --- حالة وضع النهار (الافتراضي) --- */
 html:not(.dark) #moon-icon {
-    display: block;
+    opacity: 1;
     transform: rotateY(0deg);
 }
 html:not(.dark) #sun-icon {
-    display: none;
+    opacity: 0;
     transform: rotateY(-180deg);
 }
 
-/* حالة وضع الليل (Dark Mode): تظهر أيقونة الشمس وتختفي القمر بدوران */
+/* --- حالة وضع الليل (Dark Mode) --- */
 .dark #sun-icon {
-    display: block;
+    opacity: 1;
     transform: rotateY(0deg);
 }
 .dark #moon-icon {
-    display: none;
+    opacity: 0;
     transform: rotateY(180deg);
 }
 
-/* تأثير نبض عند الضغط على الزر */
+/* تأثير نبض عند الضغط */
 #theme-toggle:active i {
-    transform: scale(0.9);
+    transform: scale(0.85);
 }
 
 /* 3. تأثيرات التدرج (Hero Section) */
@@ -63,20 +67,16 @@ html:not(.dark) #sun-icon {
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-
 .dark ::-webkit-scrollbar-track {
     background: #0f172a;
 }
-
 ::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: #2563eb;
 }
