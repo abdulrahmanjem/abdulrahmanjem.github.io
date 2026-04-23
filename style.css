@@ -7,25 +7,27 @@ body {
 }
 
 /* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
+/* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
 #theme-toggle {
     perspective: 1000px; 
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* يفضل تحديد عرض ثابت للزر */
+    width: 40px; 
     height: 40px;
-    overflow: hidden;
 }
 
+/* تعديل هائل: إزالة الاعتماد على .hidden واستخدام الحالة من html مباشرة */
 #theme-toggle i {
-    position: absolute; /* وضع الأيقونات فوق بعضها لضمان سلاسة الدوران */
+    position: absolute; 
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     backface-visibility: hidden;
-    opacity: 0; /* إخفاء الأيقونة افتراضياً */
+    opacity: 0; /* إخفاء افتراضي */
+    display: block !important; /* نلغي تأثير .hidden الخاص بـ Tailwind */
 }
 
-/* --- حالة وضع النهار (الافتراضي) --- */
+/* حالة وضع النهار (الافتراضي): نظهر أيقونة القمر (التي تنقلك لليل) */
 html:not(.dark) #moon-icon {
     opacity: 1;
     transform: rotateY(0deg);
@@ -35,7 +37,7 @@ html:not(.dark) #sun-icon {
     transform: rotateY(-180deg);
 }
 
-/* --- حالة وضع الليل (Dark Mode) --- */
+/* حالة وضع الليل (Dark Mode): نظهر أيقونة الشمس (التي تنقلك للنهار) */
 .dark #sun-icon {
     opacity: 1;
     transform: rotateY(0deg);
