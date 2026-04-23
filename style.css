@@ -1,15 +1,33 @@
-/* Core Styling */
+/* 1. الإعدادات العامة والخطوط */
 body {
     font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hero Section Gradient Text & Buttons */
+/* 2. حل مشكلة ظهور الأيقونات معاً (Theme Toggle) */
+/* إخفاء الأيقونات افتراضياً */
+#theme-toggle i {
+    display: none;
+}
+
+/* في الوضع الفاتح الافتراضي: إظهار أيقونة القمر فقط */
+html:not(.dark) #moon-icon {
+    display: block;
+}
+
+/* في الوضع المظلم: إظهار أيقونة الشمس فقط */
+.dark #sun-icon {
+    display: block;
+}
+
+/* 3. تأثيرات التدرج (Hero Section) */
 .hero-gradient {
     background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
-/* Glassmorphism Effect for Cards/Sections */
+/* 4. تأثير الزجاج (Glassmorphism) */
 .glass {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -17,7 +35,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Custom Scrollbar (Optional for Professional Look) */
+/* 5. تخصيص شريط التمرير (Scrollbar) ليناسب التصميم */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -35,13 +53,17 @@ body {
     border-radius: 10px;
 }
 
-/* Smooth Transitions for Images */
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* 6. تحسينات الصور والشعارات */
 .logo-container img, 
 .aspect-\[3\/4\] img {
     transition: opacity 0.4s ease-in-out;
 }
 
-/* Selection Color */
+/* 7. لون تحديد النص (Selection) */
 ::selection {
     background: #3b82f6;
     color: white;
