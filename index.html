@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdulrahman Shunnar | Portfolio</title>
-    
+
     <!-- Theme Loader -->
     <script>
         if (
@@ -12,8 +12,6 @@
             (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
         ) {
             document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
         }
     </script>
 
@@ -23,9 +21,9 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons (مصحّح) -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -41,154 +39,134 @@
     <style>
         body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
-        
-        /* ضبط تأثير الدوران (Flip) */
-        #theme-toggle {
-            perspective: 1000px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        <!-- Controls -->
-              </button>
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition">
-                    <i data-lucide="sun" id="sun-icon" class="hidden w-5 h-5"></i>
-                    <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+        /* Theme Toggle Flip */
+        #theme-toggle { perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; }
+        #sun-icon, #moon-icon { transition: transform 0.6s, opacity 0.4s; }
 
-
-        
-        /* وضع النهار: اظهر القمر (لأن الضغط عليه سيأخذك لليل) */
         html:not(.dark) #moon-icon { opacity: 1; transform: rotateY(0deg); }
         html:not(.dark) #sun-icon { opacity: 0; transform: rotateY(-180deg); }
-        
-        /* وضع الليل: اظهر الشمس (لأن الضغط عليه سيأخذك للنهار) */
+
         .dark #sun-icon { opacity: 1; transform: rotateY(0deg); }
         .dark #moon-icon { opacity: 0; transform: rotateY(180deg); }
 
-        .glass { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-        }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden">
 
+    <!-- NAVBAR -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
             <div class="logo-container h-12 flex items-center">
-                <img src="22.png" alt="Logo" class="h-full object-contain dark:hidden">
-                <img src="33.png" alt="Logo" class="h-full object-contain hidden dark:block">
+                <img src="22.png" class="h-full dark:hidden">
+                <img src="33.png" class="h-full hidden dark:block">
             </div>
-            
+
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#home" class="hover:text-primary transition">Home</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#experiences" class="hover:text-primary transition">Experiences</a>
-                <a href="#skills" class="hover:text-primary transition">Skills</a>
-                <a href="#projects" class="hover:text-primary transition">Projects</a>
-                <a href="#certificates" class="hover:text-primary transition">Certificates</a>
-                <a href="#mywritings" class="hover:text-primary transition">My Writingst</a>
-                <a href="#press" class="hover:text-primary transition">Press</a>
-                <a href="#contact" class="hover:text-primary transition">Contact</a>
+                <a href="#home" class="hover:text-primary">Home</a>
+                <a href="#about" class="hover:text-primary">About</a>
+                <a href="#experiences" class="hover:text-primary">Experiences</a>
+                <a href="#skills" class="hover:text-primary">Skills</a>
+                <a href="#projects" class="hover:text-primary">Projects</a>
+                <a href="#certificates" class="hover:text-primary">Certificates</a>
+                <a href="#mywritings" class="hover:text-primary">My Writings</a>
+                <a href="#press" class="hover:text-primary">Press</a>
+                <a href="#contact" class="hover:text-primary">Contact</a>
             </div>
 
             <div class="flex items-center gap-3">
-    <button id="theme-toggle" class="relative w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition-all duration-300 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700">
-        <i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-500"></i>
-        <i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-600"></i>
-    </button>
-</div>
+                <button id="theme-toggle" class="relative w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                    <i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-500"></i>
+                    <i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </div>
+
         </div>
     </nav>
 
+    <!-- HERO -->
     <section id="home" class="min-h-screen pt-32 flex items-center relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
             <div class="z-10">
                 <h2 class="text-primary font-bold text-lg mb-4">Abdulrahman Shunnar</h2>
+
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                    InfoSec Specialist <br> 
+                    InfoSec Specialist <br>
                     <span class="text-transparent bg-clip-text hero-gradient">& Java Developer</span>
                 </h1>
+
                 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
                     A technical visionary combining network security with innovative software solutions.
                 </p>
+
                 <div class="flex gap-4">
                     <a href="#projects" class="px-8 py-4 hero-gradient text-white rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition">
                         View My Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
-                    <a href="#" data-t="btn_cv" class="px-8 py-4 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-slate-900 transition">
-    Download CV
-</a>
 
+                    <a href="#" class="px-8 py-4 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-slate-900 transition">
+                        Download CV
+                    </a>
                 </div>
             </div>
 
-<!-- About Section -->
-<section id="about" class="py-24 bg-white dark:bg-slate-900/30">
-    <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="text-center mb-16">
-            <h2 data-t="nav_about" class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
-                About Me
-            </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-
-            <!-- Text -->
-            <div class="space-y-6 text-start">
-                <h3 data-t="about_title" class="text-2xl font-bold">
-                    A Technical Vision That Transcends Programming Boundaries
-                </h3>
-
-                <p data-t="about_desc" class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                    As a Java Developer and Information Security Specialist, my role extends beyond writing code to securing digital environments and managing complex technical and engineering projects. I believe that technology is a powerful tool for community service, a philosophy I apply by integrating my software expertise into humanitarian initiatives and academic research to deliver innovative solutions with a tangible impact.
-                </p>
-
-                <div class="grid grid-cols-2 gap-6 pt-4">
-                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-                        <span class="block text-3xl font-bold text-primary mb-1">5+</span>
-                        <span data-t="stat_exp" class="text-sm text-slate-500 italic">Years Experience</span>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-                        <span class="block text-3xl font-bold text-primary mb-1">50+</span>
-                        <span data-t="stat_proj" class="text-sm text-slate-500 italic">Successful Projects</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Images -->
-            <div class="grid grid-cols-2 gap-4">
-                <div class="h-48 rounded-3xl overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" 
-                         alt="Work" class="w-full h-full object-cover">
-                </div>
-
-                <div class="h-48 mt-12 rounded-3xl overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400" 
-                         alt="Coding" class="w-full h-full object-cover">
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
+            <!-- HERO IMAGE -->
             <div class="relative group">
-                <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-[2.5rem] shadow-2xl z-10 border-8 border-white dark:border-slate-900 transition-all duration-500">
-                    <img src="day-photo.png" class="w-full h-full object-cover dark:hidden" alt="Day">
-                    <img src="night-photo.png" class="w-full h-full object-cover hidden dark:block" alt="Night">
+                <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-[2.5rem] shadow-2xl z-10 border-8 border-white dark:border-slate-900">
+                    <img src="day-photo.png" class="w-full h-full object-cover dark:hidden">
+                    <img src="night-photo.png" class="w-full h-full object-cover hidden dark:block">
                 </div>
+
                 <div class="absolute -z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 dark:bg-blue-500/5 blur-[100px] rounded-full"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-white dark:bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">About Me</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+
+                <div class="space-y-6 text-start">
+                    <h3 class="text-2xl font-bold">A Technical Vision That Transcends Programming Boundaries</h3>
+
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                        As a Java Developer and Information Security Specialist, my role extends beyond writing code to securing digital environments and managing complex technical and engineering projects.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
+                            <span class="block text-3xl font-bold text-primary mb-1">5+</span>
+                            <span class="text-sm text-slate-500 italic">Years Experience</span>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
+                            <span class="block text-3xl font-bold text-primary mb-1">50+</span>
+                            <span class="text-sm text-slate-500 italic">Successful Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-48 rounded-3xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="h-48 mt-12 rounded-3xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
