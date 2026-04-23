@@ -141,8 +141,8 @@
         applyTheme(savedTheme);
 
         themeToggle.addEventListener('click', () => {
-            const isDark = html.classList.contains('dark');
-            const newTheme = isDark ? 'light' : 'dark';
+            const islight = html.classList.contains('light');
+            const newTheme = islight ? 'dark' : 'light';
             applyTheme(newTheme);
             localStorage.setItem('theme', newTheme);
         });
