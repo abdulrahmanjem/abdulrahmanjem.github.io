@@ -1,3 +1,9 @@
+/* إخفاء الأيقونات افتراضياً */
+#sun-icon,
+#moon-icon {
+    opacity: 0;
+}
+
 /* 1. الإعدادات العامة والخطوط */
 body {
     font-family: 'Poppins', sans-serif;
@@ -6,8 +12,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 2. منطق تبديل وقلب الأيقونات (Icon Flip Logic) */
-/* ملاحظة: تأكد أن معرف الزر في الـ HTML هو theme-toggle */
+/* 2. منطق تبديل وقلب الأيقونات */
 #theme-toggle {
     perspective: 1000px;
     position: relative;
@@ -18,13 +23,12 @@ body {
 }
 
 #theme-toggle i {
-    position: absolute; /* لجعل الشمس والقمر في نفس المركز تماماً */
+    position: absolute;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     backface-visibility: hidden;
-    opacity: 0;
 }
 
-/* حالة وضع النهار (Default) - تظهر أيقونة القمر */
+/* وضع النهار */
 html:not(.dark) #moon-icon {
     opacity: 1;
     transform: rotateY(0deg);
@@ -34,7 +38,7 @@ html:not(.dark) #sun-icon {
     transform: rotateY(-180deg);
 }
 
-/* حالة وضع الليل (Dark Mode) - تظهر أيقونة الشمس */
+/* وضع الليل */
 .dark #sun-icon {
     opacity: 1;
     transform: rotateY(0deg);
@@ -44,17 +48,16 @@ html:not(.dark) #sun-icon {
     transform: rotateY(180deg);
 }
 
-/* تأثير بسيط عند الضغط */
+/* تأثير الضغط */
 #theme-toggle:active {
     transform: scale(0.9);
 }
 
-/* 3. تأثيرات التدرج (Hero Section) */
+/* باقي الكود كما هو */
 .hero-gradient {
     background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
-/* 4. تأثير الزجاج (Glassmorphism) */
 .glass {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -62,31 +65,21 @@ html:not(.dark) #sun-icon {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 5. تخصيص شريط التمرير (Scrollbar) */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-.dark ::-webkit-scrollbar-track {
-    background: #0f172a;
-}
-::-webkit-scrollbar-thumb {
-    background: #3b82f6;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #2563eb;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+.dark ::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
-/* 6. تحسينات الصور والشعارات */
-.logo-container img, 
-.aspect-\[3\/4\] img {
+.logo-container img,
+.aspect-
+
+\[3\/4\]
+
+ img {
     transition: opacity 0.4s ease-in-out;
 }
 
-/* 7. لون تحديد النص (Selection) */
 ::selection {
     background: #3b82f6;
     color: white;
