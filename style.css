@@ -6,28 +6,29 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
-/* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
-#theme-toggle {
-    perspective: 1000px; 
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; 
-    height: 40px;
+/* 2. منطق مفتاح السحب وقلب الأيقونات (Toggle Switch & Icon Flip) */
+#theme-toggle-input:checked ~ #switch-dot {
+    transform: translateX(1.5rem); /* تحريك الدائرة لليمين عند التفعيل */
 }
 
-/* تعديل هائل: إزالة الاعتماد على .hidden واستخدام الحالة من html مباشرة */
-#theme-toggle i {
-    position: absolute; 
+#theme-toggle-input:checked ~ .switch-bg {
+    background-color: #3b82f6; /* تغيير لون الخلفية للأزرق في الوضع المظلم */
+}
+
+#switch-dot {
+    perspective: 1000px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#switch-dot i {
+    position: absolute;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
     backface-visibility: hidden;
-    opacity: 0; /* إخفاء افتراضي */
-    display: block !important; /* نلغي تأثير .hidden الخاص بـ Tailwind */
+    opacity: 0;
 }
 
-/* حالة وضع النهار (الافتراضي): نظهر أيقونة القمر (التي تنقلك لليل) */
+/* حالة وضع النهار (Default) */
 html:not(.dark) #moon-icon {
     opacity: 1;
     transform: rotateY(0deg);
@@ -37,7 +38,7 @@ html:not(.dark) #sun-icon {
     transform: rotateY(-180deg);
 }
 
-/* حالة وضع الليل (Dark Mode): نظهر أيقونة الشمس (التي تنقلك للنهار) */
+/* حالة وضع الليل (Dark Mode) */
 .dark #sun-icon {
     opacity: 1;
     transform: rotateY(0deg);
@@ -45,11 +46,6 @@ html:not(.dark) #sun-icon {
 .dark #moon-icon {
     opacity: 0;
     transform: rotateY(180deg);
-}
-
-/* تأثير نبض عند الضغط */
-#theme-toggle:active i {
-    transform: scale(0.85);
 }
 
 /* 3. تأثيرات التدرج (Hero Section) */
