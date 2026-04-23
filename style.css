@@ -1,128 +1,48 @@
-/* الخط الأساسي */
-:root {
-    --font-main: 'Cairo', sans-serif;
-}
-
-/* عند التحويل للإنجليزية */
-html[lang="en"] {
-    --font-main: 'Poppins', sans-serif;
-}
-
-/* انتقالات ناعمة */
+/* Core Styling */
 body {
-    font-family: var(--font-main);
+    font-family: 'Poppins', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* خلفية الهيرو */
+/* Hero Section Gradient Text & Buttons */
 .hero-gradient {
     background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
 }
 
-/* تأثير الزجاج */
+/* Glassmorphism Effect for Cards/Sections */
 .glass {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* حركة طافية للصورة */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0px); }
+/* Custom Scrollbar (Optional for Professional Look) */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.animate-float {
-    animation: float 6s ease-in-out infinite;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-/* انتقالات اللوجو */
-.logo-container img {
-    transition: opacity 0.3s ease-in-out;
+.dark ::-webkit-scrollbar-track {
+    background: #0f172a;
 }
 
-/* تحسين القائمة */
-nav a {
-    position: relative;
-    padding-bottom: 4px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #3b82f6;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0%;
-    height: 2px;
+::-webkit-scrollbar-thumb {
     background: #3b82f6;
-    transition: width 0.3s ease;
+    border-radius: 10px;
 }
 
-nav a:hover::after {
-    width: 100%;
+/* Smooth Transitions for Images */
+.logo-container img, 
+.aspect-\[3\/4\] img {
+    transition: opacity 0.4s ease-in-out;
 }
 
-/* زر الوضع الليلي */
-#theme-toggle {
-    transition: transform 0.2s ease;
-}
-
-#theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* زر اللغة */
-#lang-toggle {
-    transition: background-color 0.2s ease;
-}
-
-/* تحسين الهيرو */
-#home h1 span {
-    display: inline-block;
-}
-
-/* تحسين الصورة */
-.hero-image {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-/* الوضع الليلي */
-.dark .glass {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-.dark nav a:hover {
-    color: #60a5fa;
-}
-
-.dark nav a::after {
-    background: #60a5fa;
-}
-
-/* تحسين النصوص */
-.dark p {
-    color: #cbd5e1;
-}
-
-/* تحسين الأزرار */
-button, a {
-    transition: all 0.25s ease;
-}
-
-/* تأثيرات إضافية */
-.shadow-soft {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.dark .shadow-soft {
-    box-shadow: 0 8px 20px rgba(255,255,255,0.05);
+/* Selection Color */
+::selection {
+    background: #3b82f6;
+    color: white;
 }
