@@ -121,31 +121,47 @@
     </footer>
 
     <script>
-        // تهيئة الأيقونات
-        lucide.createIcons();
+    // 1. تهيئة الأيقونات عند تحميل الصفحة
+    lucide.createIcons();
 
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
 
-        // دالة تطبيق الثيم
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
+    /**
+     * دالة تطبيق الثيم:
+     * وظيفتها الآن هي فقط التحكم في إضافة أو إزالة كلاس 'dark'.
+     * الـ CSS الذي دمجناه سابقاً سيتولى عملية تدوير الأيقونات (Flip) تلقائياً.
+     */
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
         }
+    }
 
-        // ضبط الوضع النهاري كافتراضي
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        applyTheme(savedTheme);
+    // 2. التحقق من التفضيل المحفوظ أو استخدام الوضع النهاري كافتراضي
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const isdark = html.classList.contains('dark');
-            const newTheme = isdark ? 'light' : 'dark';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    </script>
+    // 3. منطق زر التبديل
+    themeToggle.addEventListener('click', () => {
+        // التحقق من الحالة الحالية
+        const isDark = html.classList.contains('dark');
+        
+        // عكس الحالة (إذا كان مظلم اجعله فاتح والعكس)
+        const newTheme = isDark ? 'light' : 'dark';
+        
+        applyTheme(newTheme);
+        
+        // حفظ الخيار الجديد في المتصفح
+        localStorage.setItem('theme', newTheme);
+
+        /**
+         * ملاحظة هامة: 
+         * الـ CSS سيتكفل بحركة الـ Flip للأيقونات بمجرد تغير الكلاس في وسم الـ html.
+         */
+    });
+</script>
 </body>
 </html>
