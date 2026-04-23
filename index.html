@@ -26,21 +26,37 @@
         }
     </script>
 
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
+        }
+        .hero-gradient { 
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); 
+        }
+        
+        /* حل مشكلة ظهور الأيقونات معاً */
+        #theme-toggle i { 
+            display: none; /* إخفاء الأيقونات افتراضياً */
+        }
+        
+        /* في الوضع المظلم: اظهر الشمس فقط */
+        .dark #sun-icon { 
+            display: block; 
+        }
+        
+        /* في الوضع الفاتح: اظهر القمر فقط */
+        html:not(.dark) #moon-icon { 
+            display: block; 
+        }
 
-<style>
-        body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
-        .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
-        
-        /* التحكم في ظهور الأيقونات بناءً على وضع الصفحة */
-        #theme-toggle i { display: none; } /* إخفاء الكل افتراضياً */
-        
-        /* في الوضع المظلم: اظهر الشمس */
-        .dark #sun-icon { display: block; }
-        
-        /* في الوضع الفاتح (الافتراضي): اظهر القمر */
-        html:not(.dark) #moon-icon { display: block; }
+        /* تحسينات بصرية إضافية */
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
     </style>
-    
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden">
 
@@ -61,8 +77,8 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition">
-                    <i data-lucide="sun" id="sun-icon" class="hidden w-5 h-5"></i>
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition flex items-center justify-center">
+                    <i data-lucide="sun" id="sun-icon" class="w-5 h-5"></i>
                     <i data-lucide="moon" id="moon-icon" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -79,7 +95,7 @@
                 </h1>
                 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
                     A technical visionary combining network security with innovative software solutions. 
-                    Based on a solid academic background at UCAS[cite: 17, 91].
+                    Based on a solid academic background at UCAS.
                 </p>
                 <div class="flex gap-4">
                     <a href="#projects" class="px-8 py-4 hero-gradient text-white rounded-xl font-bold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition flex items-center gap-2">
@@ -100,17 +116,18 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-slate-200 dark:border-slate-900 text-center">
-        <p class="text-slate-500 italic">© 2026 All Rights Reserved[cite: 93].</p>
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-slate-500 italic">© 2026 All Rights Reserved.</p>
     </footer>
 
-   <script>
+    <script>
+        // تهيئة الأيقونات
         lucide.createIcons();
 
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // دالة لتطبيق الوضع المختار
+        // دالة تطبيق الثيم
         function applyTheme(theme) {
             if (theme === 'dark') {
                 html.classList.add('dark');
@@ -119,7 +136,7 @@
             }
         }
 
-        // عند التحميل: الأولوية للتفضيل المحفوظ، وإذا لم يوجد، استخدم الوضع الفاتح (Light)
+        // ضبط الوضع النهاري كافتراضي
         const savedTheme = localStorage.getItem('theme') || 'light';
         applyTheme(savedTheme);
 
