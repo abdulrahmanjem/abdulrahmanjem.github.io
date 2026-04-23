@@ -6,20 +6,44 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 2. حل مشكلة ظهور الأيقونات معاً (Theme Toggle) */
-/* إخفاء الأيقونات افتراضياً */
-#theme-toggle i {
-    display: none;
+/* 2. منطق تبديل وقلب الأيقونات (Theme Toggle Icon Flip) */
+#theme-toggle {
+    perspective: 1000px; /* ليعطي عمقاً للتأثير ثلاثي الأبعاد */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* في الوضع الفاتح الافتراضي: إظهار أيقونة القمر فقط */
+#theme-toggle i {
+    display: none; /* إخفاء الأيقونات افتراضياً ليتحكم بها الـ CSS */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    backface-visibility: hidden;
+}
+
+/* حالة وضع النهار (الافتراضي): تظهر أيقونة القمر وتختفي الشمس بدوران */
 html:not(.dark) #moon-icon {
     display: block;
+    transform: rotateY(0deg);
+}
+html:not(.dark) #sun-icon {
+    display: none;
+    transform: rotateY(-180deg);
 }
 
-/* في الوضع المظلم: إظهار أيقونة الشمس فقط */
+/* حالة وضع الليل (Dark Mode): تظهر أيقونة الشمس وتختفي القمر بدوران */
 .dark #sun-icon {
     display: block;
+    transform: rotateY(0deg);
+}
+.dark #moon-icon {
+    display: none;
+    transform: rotateY(180deg);
+}
+
+/* تأثير نبض عند الضغط على الزر */
+#theme-toggle:active i {
+    transform: scale(0.9);
 }
 
 /* 3. تأثيرات التدرج (Hero Section) */
@@ -35,7 +59,7 @@ html:not(.dark) #moon-icon {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* 5. تخصيص شريط التمرير (Scrollbar) ليناسب التصميم */
+/* 5. تخصيص شريط التمرير (Scrollbar) */
 ::-webkit-scrollbar {
     width: 8px;
 }
