@@ -43,3 +43,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+// 1. تهيئة المكتبة (ضع المفتاح الخاص بك هنا)
+(function() {
+    emailjs.init("4rrgjpYZMS7AQUB4s"); 
+})();
+
+// 2. تفعيل إرسال النموذج
+const contactForm = document.getElementById('contact-form'); // تأكد أن الـ ID موجود في الـ HTML
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btn = this.querySelector('button');
+        btn.innerText = 'Sending...';
+
+        // إرسال البيانات
+        emailjs.sendForm('service_0mnao5o', 'template_qii401w', this)
+            .then(() => {
+                alert('تم إرسال رسالتك بنجاح!');
+                btn.innerText = 'Send Message →';
+                this.reset();
+            }, (err) => {
+                alert('حدث خطأ أثناء الإرسال، حاول مرة أخرى.');
+                btn.innerText = 'Send Message →';
+            });
+    });
+}
