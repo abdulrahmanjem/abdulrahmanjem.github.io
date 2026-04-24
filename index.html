@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdulrahman Shunnar | Portfolio</title>
 
-    <script>
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+ <!-- Theme Loader -->
+<script>
+    // Check if user has a saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
 
+    if (
+        savedTheme === 'dark' || 
+        (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+</script>
+
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -35,9 +46,9 @@
         body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
 
-        /* Icon Flip Logic: لضمان دوران الأيقونات في مكانها */
-        #theme-toggle { perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
-        #theme-toggle i { position: absolute; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; }
+        /* Theme Toggle Flip */
+        #theme-toggle { perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; }
+        #sun-icon, #moon-icon { transition: transform 0.6s, opacity 0.4s; }
 
         html:not(.dark) #moon-icon { opacity: 1; transform: rotateY(0deg); }
         html:not(.dark) #sun-icon { opacity: 0; transform: rotateY(-180deg); }
@@ -51,187 +62,528 @@
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden">
 
+    <!-- NAVBAR -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
             <div class="logo-container h-12 flex items-center">
-                <img src="22.png" class="h-full dark:hidden" alt="Logo">
-                <img src="33.png" class="h-full hidden dark:block" alt="Logo Dark">
+                <img src="22.png" class="h-full dark:hidden">
+                <img src="33.png" class="h-full hidden dark:block">
             </div>
 
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#home" class="hover:text-primary transition">Home</a>
-                <a href="#about" class="hover:text-primary transition">About</a>
-                <a href="#experiences" class="hover:text-primary transition">Experiences</a>
-                <a href="#skills" class="hover:text-primary transition">Skills</a>
-                <a href="#projects" class="hover:text-primary transition">Projects</a>
-                <a href="#mywritings" class="hover:text-primary transition">Writings</a>
-                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="hover:text-primary">Home</a>
+                <a href="#about" class="hover:text-primary">About</a>
+                <a href="#experiences" class="hover:text-primary">Experiences</a>
+                <a href="#skills" class="hover:text-primary">Skills</a>
+                <a href="#projects" class="hover:text-primary">Projects</a>
+                <a href="#certificates" class="hover:text-primary">Certificates</a>
+                <a href="#mywritings" class="hover:text-primary">My Writings</a>
+                <a href="#press" class="hover:text-primary">Press</a>
+                <a href="#contact" class="hover:text-primary">Contact</a>
             </div>
 
-            <button id="theme-toggle" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                <i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-500"></i>
-                <i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-600"></i>
-            </button>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="relative w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700">
+                    <i data-lucide="sun" id="sun-icon" class="w-5 h-5 text-amber-500"></i>
+                    <i data-lucide="moon" id="moon-icon" class="w-5 h-5 text-slate-600"></i>
+                </button>
+            </div>
+
         </div>
     </nav>
 
+    <!-- HERO -->
     <section id="home" class="min-h-screen pt-32 flex items-center relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
             <div class="z-10">
                 <h2 class="text-primary font-bold text-lg mb-4">Abdulrahman Shunnar</h2>
+
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
                     InfoSec Specialist <br>
                     <span class="text-transparent bg-clip-text hero-gradient">& Java Developer</span>
                 </h1>
+
                 <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
                     A technical visionary combining network security with innovative software solutions.
                 </p>
+
                 <div class="flex gap-4">
                     <a href="#projects" class="px-8 py-4 hero-gradient text-white rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition">
                         View My Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
+
                     <a href="#" class="px-8 py-4 border border-slate-200 dark:border-slate-800 rounded-xl font-bold hover:bg-slate-100 dark:hover:bg-slate-900 transition">
                         Download CV
                     </a>
                 </div>
             </div>
-            <div class="relative">
-                <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-[2.5rem] shadow-2xl z-10 border-8 border-white dark:border-slate-900 mx-auto">
+
+            <!-- HERO IMAGE -->
+            <div class="relative group">
+                <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-[2.5rem] shadow-2xl z-10 border-8 border-white dark:border-slate-900">
                     <img src="day-photo.png" class="w-full h-full object-cover dark:hidden">
                     <img src="night-photo.png" class="w-full h-full object-cover hidden dark:block">
                 </div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[100px] rounded-full"></div>
+
+                <div class="absolute -z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 dark:bg-blue-500/5 blur-[100px] rounded-full"></div>
             </div>
+
         </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="py-24 bg-white dark:bg-slate-900/30">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2 mb-12">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-16 items-center text-left">
-                <div class="space-y-6">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">About Me</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+
+                <div class="space-y-6 text-start">
                     <h3 class="text-2xl font-bold">A Technical Vision That Transcends Programming Boundaries</h3>
+
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                        As a Java Developer and Information Security Specialist, I focus on securing digital environments and building robust software solutions.
+                        As a Java Developer and Information Security Specialist, my role extends beyond writing code to securing digital environments and managing complex technical and engineering projects.
                     </p>
+
                     <div class="grid grid-cols-2 gap-6 pt-4">
-                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
                             <span class="block text-3xl font-bold text-primary mb-1">5+</span>
                             <span class="text-sm text-slate-500 italic">Years Experience</span>
                         </div>
-                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center">
+
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
                             <span class="block text-3xl font-bold text-primary mb-1">50+</span>
-                            <span class="text-sm text-slate-500 italic">Projects</span>
+                            <span class="text-sm text-slate-500 italic">Successful Projects</span>
                         </div>
                     </div>
                 </div>
+
                 <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400" class="rounded-3xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400" class="rounded-3xl shadow-lg mt-12">
+                    <div class="h-48 rounded-3xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="h-48 mt-12 rounded-3xl overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400" class="w-full h-full object-cover">
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="experiences" class="py-24 bg-slate-50 dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">Experiences</h2>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg">
-                    <h3 class="font-bold text-xl mb-2">Biomedical Assistant Engineer</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">DentaTech Services</p>
-                    <span class="text-primary font-semibold text-sm">2025 – Present</span>
-                </div>
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg">
-                    <h3 class="font-bold text-xl mb-2">Founder/Manager</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Kayan Relief Team</p>
-                    <span class="text-primary font-semibold text-sm">2024 – 2025</span>
-                </div>
-                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg">
-                    <h3 class="font-bold text-xl mb-2">Volunteer Engineer</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Al-Zant Co.</p>
-                    <span class="text-primary font-semibold text-sm">2022 – 2024</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Experiences Section -->
+<section id="experiences" class="py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-6">
 
-    <section id="skills" class="py-24 bg-white dark:bg-slate-900/30">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold border-b-4 border-primary pb-2 mb-12 inline-block">Skills</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-primary">Cyber Security</h3>
-                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                        <li>• Network Security</li>
-                        <li>• Secure Protocols</li>
-                        <li>• Cisco Packet Tracer</li>
-                    </ul>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-primary">Development</h3>
-                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                        <li>• Java (JavaFX/IntelliJ)</li>
-                        <li>• HTML/CSS/Tailwind</li>
-                        <li>• Google Apps Script</li>
-                    </ul>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-xl font-bold text-primary">Biomedical</h3>
-                    <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                        <li>• Medical Equipment Maintenance</li>
-                        <li>• Humanitarian Logistics</li>
-                        <li>• Team Leadership</li>
-                    </ul>
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+                Experiences
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+                A showcase of my professional journey, highlighting roles, achievements, and contributions in technology and humanitarian.
+            </p>
+        </div>
+
+        <!-- Experiences Grid -->
+        <div class="grid md:grid-cols-3 gap-10">
+
+            <!-- Experience 1 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:scale-[1.02] transition">
+                <h3 class="font-bold text-xl mb-2">Biomedical Assistant Engineer</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                    DentaTech - Biomedical Engineering Services.
+                </p>
+                <span class="text-primary font-semibold text-sm">2025 – Present</span>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:scale-[1.02] transition">
+                <h3 class="font-bold text-xl mb-2">Founder/Manager</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                    Kayan Relief Team.
+                </p>
+                <span class="text-primary font-semibold text-sm">2024 – 2025</span>
+            </div>
+
+            <!-- Experience 3 -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:scale-[1.02] transition">
+                <h3 class="font-bold text-xl mb-2">Biomedical Assistant Engineer | Volunteer</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                    Al-Zant Co. for Medical & Lab. Devices.
+                </p>
+                <span class="text-primary font-semibold text-sm">2022 – 2024</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+<section id="skills" class="py-24 bg-white dark:bg-slate-900/30">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+        Skills
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+        Key areas of expertise across technology, biomedical engineering, and research.
+      </p>
+    </div>
+
+    <!-- Group 1 -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold mb-6">Technical & Cyber Security</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Network Security</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Routing & secure setups</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Programming</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Java, HTML, CSS</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Automation</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Google Apps Script</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Digital Platforms</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Telegram & student systems</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 2 -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold mb-6">Biomedical Engineering & Logistics</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Medical Equipment</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Dental & sterilization devices</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Humanitarian Logistics</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Relief planning & coordination</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Team Leadership</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Managing 26+ volunteers</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Psychological First Aid</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Training & emergency support</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group 3 -->
+    <div>
+      <h3 class="text-2xl font-bold mb-6">Research & Creative Branding</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Research</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Political & social studies</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Design & Branding</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Covers, identities, brochures</p>
+        </div>
+        <div class="p-5 bg-slate-50 dark:bg-slate-800 rounded-xl shadow">
+          <h4 class="font-semibold">Writing</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Academic & creative content</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- Projects Section -->
+<section id="projects" class="py-24 bg-slate-50 dark:bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+        Projects
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+        A timeline of selected works showcasing my technical, creative, and humanitarian contributions.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative border-l border-slate-300 dark:border-slate-700">
+
+      <!-- Project 1 -->
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">CloudCAS Library</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          Automated library system using Google Apps Script.
+        </p>
+        <a href="https://t.me/cloudcaslib" target="_blank" 
+           class="text-primary font-semibold hover:underline text-sm">View Project →</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">SimpleLibraryManagementSystem.java</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">
+          Java console app simulating basic library operations.
+        </p>
+        <a href="https://github.com/abdulrahmanjem/SimpleLibraryManagementSystem.java" target="_blank" 
+           class="text-primary font-semibold hover:underline text-sm">View Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Certificates Section -->
+<section id="certificates" class="py-24 bg-slate-50 dark:bg-slate-900">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+        Certificates
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+        Documented achievements across IT, business, health, and research.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative border-l border-slate-300 dark:border-slate-700">
+
+      <!-- Cisco / UCAS -->
+        <div class="mb-10 ml-6">
+            <h4 class="font-semibold">Associate's Degree in Cybersecurity</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400">UCAS — Ongoing</p>
+          </div>
+        
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Introduction to Packet Tracer</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Cisco Academy — April 2026</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Getting Started with Cisco Packet Tracer</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Cisco Academy — April 2026</p>
+      </div>
+
+<!-- Edraak ICDL-Base -->
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Computer Essentials | ICDL-Base</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Edraak — 22 April 2026</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Internet & Email Essentials | ICDL-Base</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Edraak — 22 April 2026</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Word Processing | ICDL-Base</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Edraak — 22 April 2026</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Excel Spreadsheets | ICDL-Base</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Edraak — 22 April 2026</p>
+      </div>
+        
+      <!-- Alison -->
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Diploma in Business Administration</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Alison — May 2023</p>
+      </div>
+
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Office Productivity</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Alison — 2023</p>
+      </div>
+
+      <!-- Health & Field -->
+      <div class="mb-10 ml-6">
+        <div class="absolute w-3 h-3 bg-primary rounded-full -left-[6px] mt-2"></div>
+        <h3 class="text-xl font-bold">Physical Fitness - Fitness Tips and Workout Routines</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-400">Alison — Nov 2022</p>
+      </div>
+        
+
+    </div>
+  </div>
+</section>
+    
+    <!-- My Writings Section -->
+<section id="mywritings" class="py-24 bg-slate-100 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+                My Writings
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+                A collection of my authored books, reflecting my passion for research, creativity, and impactful storytelling.
+            </p>
+        </div>
+
+        <!-- Books Grid -->
+        <div class="grid md:grid-cols-4 gap-10">
+
+            <!-- Book 1 -->
+            <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.03] transition">
+                <img src="book1.png" alt="Book 1" class="w-full h-72 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Long Night</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        A chronological documentation of the pivotal Israeli-Palestinian clashes in May 2021.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="projects" class="py-24 bg-slate-50 dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold border-b-4 border-primary pb-2 mb-12 inline-block">Projects</h2>
-            <div class="space-y-8 border-l-2 border-primary ml-4 pl-8 relative">
-                <div>
-                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px]"></div>
-                    <h3 class="text-xl font-bold">CloudCAS Library</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Automated library system via Telegram Bot.</p>
-                </div>
-                <div>
-                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px]"></div>
-                    <h3 class="text-xl font-bold">SimpleLibraryManagementSystem.java</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Java application for library records.</p>
+            <!-- Book 2 -->
+            <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.03] transition">
+                <img src="book2.png" alt="Book 2" class="w-full h-72 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Message to the Queen</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        A journey into the world of literature and philosophy, centered on the belief that "Everything shines in its own time.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="mywritings" class="py-24 bg-white dark:bg-slate-900/30">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold border-b-4 border-primary pb-2 mb-12 inline-block">My Writings</h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-                    <img src="book1.png" class="w-full h-48 object-cover">
-                    <div class="p-4"><h4 class="font-bold">Long Night</h4></div>
-                </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-                    <img src="book2.png" class="w-full h-48 object-cover">
-                    <div class="p-4"><h4 class="font-bold">Message to the Queen</h4></div>
-                </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-                    <img src="book3.png" class="w-full h-48 object-cover">
-                    <div class="p-4"><h4 class="font-bold">The Last Meeting</h4></div>
-                </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-                    <img src="book4.png" class="w-full h-48 object-cover">
-                    <div class="p-4"><h4 class="font-bold">Who Shook The Bowl?</h4></div>
+            <!-- Book 3 -->
+            <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.03] transition">
+                <img src="book3.png" alt="Book 3" class="w-full h-72 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">The Last Meeting</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        A heart-wrenching documentation of the Jabalia camp tragedy, examining the criminal investigations and the human cost.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
+            <!-- Book 4 -->
+            <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.03] transition">
+                <img src="book4.png" alt="Book 4" class="w-full h-72 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Who Shook The Bowl?</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        An in-depth historical analysis of international conspiracies and the roots of the conflict since WWI.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Press Section -->
+<section id="press" class="py-24 bg-slate-50 dark:bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+        Press
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+        Featured highlights and media coverage.
+      </p>
+    </div>
+
+    <!-- Press Grid -->
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Press Item 1 -->
+      <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.02] transition">
+        <!-- Light/Dark Images -->
+        <img src="kayan.jpg" alt="Press 1" class="w-full h-56 object-cover block dark:hidden">
+        <img src="kdark.jpg" alt="Press 1 Dark" class="w-full h-56 object-cover hidden dark:block">
+        <div class="p-5">
+          <h3 class="font-bold text-lg mb-2">Workshop: Skin Diseases Among Children in Displacement Camps.</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            As part of the urgent humanitarian response and to raise health awareness in displacement settings, researcher Abdulrahman Shunnar presented a specialized workshop targeting 80 participants from the residents of (Al-Jawzat Camp).
+          </p>
+          <a href="#" class="inline-flex items-center text-primary font-semibold hover:underline">
+            Read More <span class="ml-1">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Press Item 2 -->
+      <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.02] transition">
+        <img src="conference.jpg" alt="Press 2" class="w-full h-56 object-cover block dark:hidden">
+        <img src="cdark.jpg" alt="Press 2 Dark" class="w-full h-56 object-cover hidden dark:block">
+        <div class="p-5">
+          <h3 class="font-bold text-lg mb-2">Launch Conference of Kayan Relief Team</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            The Kayan Team launch conference marked the official inauguration of a pioneering youth initiative dedicated to community empowerment and providing humanitarian and psychological support to vulnerable groups. Researcher Abdulrahman Shunnar played a central role in this event as a founder and strategic lead, emphasizing the integration of research and field operations.
+          </p>
+          <a href="#" class="inline-flex items-center text-primary font-semibold hover:underline">
+            Read More <span class="ml-1">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Press Item 3 -->
+      <div class="rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-slate-800 hover:scale-[1.02] transition">
+        <img src="hospital.jpg" alt="Press 3" class="w-full h-56 object-cover block dark:hidden">
+        <img src="hdark.jpg" alt="Press 3 Dark" class="w-full h-56 object-cover hidden dark:block">
+        <div class="p-5">
+          <h3 class="font-bold text-lg mb-2">Preparation of Electrosurgical Units - Yafa Hospital</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            As part of the "DentaTech" team’s mission to support critical healthcare infrastructure, we conducted comprehensive preparation and maintenance for Electrosurgical Units within the operating theaters at Yafa Hospital, Deir al-Balah.
+          </p>
+          <a href="#" class="inline-flex items-center text-primary font-semibold hover:underline">
+            Read More <span class="ml-1">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-slate-50 dark:bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Title -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">
+        Contact
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
+        Get in touch for collaborations, projects, or inquiries.
+      </p>
+    </div>
+
+    <!-- Contact Grid -->
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Form -->
     <section id="contact" class="py-24 bg-slate-50 dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold border-b-4 border-primary pb-2 mb-12 inline-block">Contact</h2>
@@ -256,6 +608,7 @@
         </div>
     </section>
 
+    
     <script src="script.js"></script>
 </body>
 </html>
