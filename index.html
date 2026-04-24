@@ -582,52 +582,42 @@
     </div>
 
       
-<!-- Contact Grid -->
 <section id="contact" class="py-24 bg-slate-50 dark:bg-slate-900">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Contact Info -->
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold inline-block border-b-4 border-primary pb-2">Contact</h2>
-      <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto">Get in touch for collaborations or inquiries.</p>
-    </div>
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold border-b-4 border-primary pb-2 mb-12 inline-block">Contact</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-lg">Let's talk about security, development, or humanitarian projects.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-primary font-bold">LinkedIn</a>
+                        <a href="#" class="text-primary font-bold">GitHub</a>
+                        <a href="#" class="text-primary font-bold">Telegram</a>
+                    </div>
+                </div>
+                <form id="contact-form" class="space-y-6 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl space-y-4">
+  <div>
+    <label class="block text-sm font-medium mb-2">Name</label>
+     <input type="text" name="user_name" placeholder="Name" required class="w-full p-3 rounded-lg border dark:bg-slate-900 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary">
+  </div>
+  <div>
+    <label class="block text-sm font-medium mb-2">Email</label>
+    <input type="email" name="user_email" placeholder="Email" required class="w-full p-3 rounded-lg border dark:bg-slate-900 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary">
+  </div>
+  <div>
+    <label class="block text-sm font-medium mb-2">Message</label>
+    <textarea name="message" placeholder="Message" rows="4" required class="w-full p-3 rounded-lg border dark:bg-slate-900 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary"></textarea>
+  </div>
+  <button type="submit" id="submit-btn" class="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition fleentx justify-cer items-center gap-2">
+    <span>Send Message →</span>
+  </button>
+</form>
+            </div>
+        </div>
+    </section>
 
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xl font-bold mb-2">Email</h3>
-          <p class="text-slate-600 dark:text-slate-400">abdulrahman.jem@gmail.com</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-2">Location</h3>
-          <p class="text-slate-600 dark:text-slate-400">Gaza, Palestine</p>
-        </div>
-        <div class="flex gap-4 pt-4">
-          <a href="#" class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow hover:text-primary transition">LinkedIn</a>
-          <a href="#" class="p-3 bg-white dark:bg-slate-800 rounded-lg shadow hover:text-primary transition">GitHub</a>
-        </div>
-      </div>
-        <!-- Contact Form -->
-      <form id="contact-form" class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl space-y-4">
-        <div>
-          <input type="text" name="user_name" placeholder="Name" required 
-                 class="w-full p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 outline-none focus:ring-2 focus:ring-primary transition">
-        </div>
-        <div>
-          <input type="email" name="user_email" placeholder="Email" required 
-                 class="w-full p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 outline-none focus:ring-2 focus:ring-primary transition">
-        </div>
-        <div>
-          <textarea name="message" placeholder="Message" rows="4" required 
-                    class="w-full p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 outline-none focus:ring-2 focus:ring-primary transition"></textarea>
-        </div>
-        <button type="submit" id="submit-btn" 
-                class="w-full py-4 bg-primary text-white font-bold rounded-lg hover:bg-blue-600 active:scale-[0.98] transition-all flex justify-center items-center gap-2">
-          <span>Send Message →</span>
-        </button>
-      </form>
 
-    </div> </div> </section>
+
+
       
     <script src="script.js"></script>
 </body>
