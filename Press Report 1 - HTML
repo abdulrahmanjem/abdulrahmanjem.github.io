@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Report | Abdulrahman Shunnar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+                    colors: { primary: '#3b82f6' }
+                }
+            }
+        }
+
+        // Theme Sync
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .dark .glass-nav { background: rgba(15, 23, 42, 0.8); }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <nav class="fixed w-full z-50 top-0 border-b border-slate-200 dark:border-slate-800 glass-nav">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-primary font-bold">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Portfolio
+            </a>
+            <div class="text-sm font-medium opacity-60">Press Coverage</div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6">
+        <article class="max-w-3xl mx-auto">
+            
+            <header class="mb-12">
+                <div class="flex items-center gap-3 text-primary font-semibold text-sm mb-4">
+                    <span class="px-3 py-1 bg-blue-500/10 rounded-full">Humanitarian Work</span>
+                    <span class="text-slate-400">•</span>
+                    <time>October 24, 2025</time>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+                    Workshop: Skin Diseases Among Children in Displacement Camps
+                </h1>
+                <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                    "Addressing urgent health concerns through awareness and research-led intervention."
+                </p>
+            </header>
+
+            <div class="rounded-3xl overflow-hidden shadow-2xl mb-12 border-8 border-white dark:border-slate-900">
+                <img src="kayan.jpg" alt="Workshop Cover" class="w-full h-auto object-cover">
+            </div>
+
+            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+                <p>
+                    In a significant move to combat the rising health challenges in displacement settings, researcher <strong>Abdulrahman Shunnar</strong> conducted a specialized workshop at the Al-Jawzat Camp. The session focused on the prevention and treatment of common skin diseases among children, a crisis exacerbated by overcrowding and limited access to clean water.
+                </p>
+
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white pt-4">Key Highlights:</h3>
+                <ul class="list-disc pl-6 space-y-3">
+                    <li>Targeted 80 participants, including parents and local health volunteers.</li>
+                    <li>Distributed educational brochures on hygiene protocols.</li>
+                    <li>Coordinated with medical teams to provide initial screening for affected children.</li>
+                </ul>
+
+                <blockquote class="border-l-4 border-primary pl-6 py-2 italic bg-blue-500/5 rounded-r-xl my-8">
+                    "Our goal is not just to treat symptoms, but to empower families with the knowledge to prevent outbreaks before they start. Hygiene is the first line of defense in these conditions." 
+                    <span class="block mt-2 font-bold not-italic text-sm text-primary">— Abdulrahman Shunnar</span>
+                </blockquote>
+
+                <p>
+                    The workshop is part of a larger series of initiatives led by the <strong>Kayan Relief Team</strong>, aiming to bridge the gap between academic research and field-based humanitarian response.
+                </p>
+            </div>
+
+            <footer class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex gap-4">
+                    <button class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition group">
+                        <i data-lucide="share-2" class="w-4 h-4"></i> Share Report
+                    </button>
+                </div>
+                <div class="text-sm text-slate-500">
+                    Reported by: DentaTech Media Office
+                </div>
+            </footer>
+
+        </article>
+    </main>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
