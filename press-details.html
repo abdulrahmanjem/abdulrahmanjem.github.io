@@ -6,7 +6,7 @@
     <title>Press Report | Abdulrahman Shunnar</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -20,7 +20,7 @@
             }
         }
 
-        // Theme Sync
+        // Sync Dark Mode with main portfolio
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
@@ -30,79 +30,134 @@
         body { font-family: 'Poppins', sans-serif; }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
         .dark .glass-nav { background: rgba(15, 23, 42, 0.8); }
+        .report-card { transition: transform 0.3s ease; }
+        .report-card:hover { transform: translateY(-5px); }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen">
 
     <nav class="fixed w-full z-50 top-0 border-b border-slate-200 dark:border-slate-800 glass-nav">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-primary font-bold">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-primary font-bold text-lg">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Portfolio
             </a>
-            <div class="text-sm font-medium opacity-60">Press Coverage</div>
+            <div class="hidden md:block text-sm font-semibold opacity-70 italic">Field Documentation - 2025</div>
         </div>
     </nav>
 
-    <main class="pt-32 pb-24 px-6">
-        <article class="max-w-3xl mx-auto">
+    <div class="pt-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-900 group">
+                <img src="image1.jpg" alt="Children in Al-Jawzat Camp" class="w-full h-[500px] object-cover transition duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex items-end p-8 md:p-12">
+                    <div>
+                        <span class="inline-block px-4 py-1 bg-primary text-white text-sm font-bold rounded-full mb-4">Urgent Health Response</span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+                            Al-Jawzat Camp: Strategies to Combat <br> Dermatological Outbreaks
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="py-16 px-6">
+        <article class="max-w-4xl mx-auto">
             
-            <header class="mb-12">
-                <div class="flex items-center gap-3 text-primary font-semibold text-sm mb-4">
-                    <span class="px-3 py-1 bg-blue-500/10 rounded-full">Humanitarian Work</span>
-                    <span class="text-slate-400">•</span>
-                    <time>October 24, 2025</time>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
+                    <span class="text-xs text-slate-500 block mb-1 uppercase tracking-wider">Location</span>
+                    <span class="font-bold">Gaza Governorate</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-                    Workshop: Skin Diseases Among Children in Displacement Camps
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed italic">
-                    "Addressing urgent health concerns through awareness and research-led intervention."
-                </p>
-            </header>
-
-            <div class="rounded-3xl overflow-hidden shadow-2xl mb-12 border-8 border-white dark:border-slate-900">
-                <img src="image1.jpg" alt="Workshop Cover" class="w-full h-auto object-cover">
+                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
+                    <span class="text-xs text-slate-500 block mb-1 uppercase tracking-wider">Reach</span>
+                    <span class="font-bold">7,000+ Families</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
+                    <span class="text-xs text-slate-500 block mb-1 uppercase tracking-wider">Partner</span>
+                    <span class="font-bold">Women's Affairs</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
+                    <span class="text-xs text-slate-500 block mb-1 uppercase tracking-wider">Lead</span>
+                    <span class="font-bold">A. Shunnar</span>
+                </div>
             </div>
 
-            <div class="prose prose-slate dark:prose-invert max-w-none space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-                <p>
-                    In a significant move to combat the rising health challenges in displacement settings, researcher <strong>Abdulrahman Shunnar</strong> conducted a specialized workshop at the Al-Jawzat Camp. The session focused on the prevention and treatment of common skin diseases among children, a crisis exacerbated by overcrowding and limited access to clean water.
+            <section class="mb-12 space-y-6">
+                <h2 class="text-2xl font-bold border-l-4 border-primary pl-4">Executive Summary</h2>
+                <p class="text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+                    Al-Jawzat Camp is one of the largest displacement hubs in Gaza, housing over **7,000 families** within a complex network of internal sub-camps. Due to extreme overcrowding, dermatological infections have emerged as a significant threat to child health. This workshop was executed as a proactive measure to curb outbreaks by empowering the camp's female leadership and caregivers.
                 </p>
+            </section>
 
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-white pt-4">Key Highlights:</h3>
-                <ul class="list-disc pl-6 space-y-3">
-                    <li>Targeted 80 participants, including parents and local health volunteers.</li>
-                    <li>Distributed educational brochures on hygiene protocols.</li>
-                    <li>Coordinated with medical teams to provide initial screening for affected children.</li>
-                </ul>
+            <section class="my-16 grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-3xl overflow-hidden shadow-xl order-last md:order-first">
+                    <img src="image2.jpg" alt="Water scarcity challenges" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-primary">Water Scarcity & Hygiene Management</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Field assessments identified water scarcity as the primary barrier to sanitation. The workshop focused on teaching alternative sterilization methods, such as utilizing direct sunlight (UV disinfection) as a technical substitute for chemical cleaners in resource-poor settings.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                            <span>Sunlight-exposure protocol for bedding.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500"></i>
+                            <span>Spatial separation techniques within tents.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-                <blockquote class="border-l-4 border-primary pl-6 py-2 italic bg-blue-500/5 rounded-r-xl my-8">
-                    "Our goal is not just to treat symptoms, but to empower families with the knowledge to prevent outbreaks before they start. Hygiene is the first line of defense in these conditions." 
-                    <span class="block mt-2 font-bold not-italic text-sm text-primary">— Abdulrahman Shunnar</span>
-                </blockquote>
+            <section class="bg-white dark:bg-slate-900 p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-800 mb-12">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i data-lucide="award" class="text-primary"></i> Key Workshop Outcomes
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <h4 class="font-bold">Clinical Identification</h4>
+                        <p class="text-sm opacity-70">Enabled 80 participants to distinguish between contagious parasitic infections and environmental allergies.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold">Monitoring Network</h4>
+                        <p class="text-sm opacity-70">Activated the "Women's Affairs Committee" as a rapid-response surveillance hub for the camp's sectors.</p>
+                    </div>
+                </div>
+            </section>
 
-                <p>
-                    The workshop is part of a larger series of initiatives led by the <strong>Kayan Relief Team</strong>, aiming to bridge the gap between academic research and field-based humanitarian response.
+            <blockquote class="text-center py-12 px-6 border-y border-slate-200 dark:border-slate-800 mb-12 group">
+                <p class="text-2xl italic font-medium mb-4 group-hover:text-primary transition">
+                    "In the displacement camps, an ounce of prevention is worth a ton of medicine that simply isn't there."
                 </p>
-            </div>
+                <cite class="text-primary font-bold">— Abdulrahman Shunnar</cite>
+            </blockquote>
 
-            <footer class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex gap-4">
-                    <button class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition group">
-                        <i data-lucide="share-2" class="w-4 h-4"></i> Share Report
-                    </button>
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold mb-6">Technical Recommendations</h3>
+                <div class="space-y-4">
+                    <div class="p-4 bg-red-500/5 rounded-xl border-l-4 border-red-500">
+                        <p><strong>Logistics:</strong> Immediate scaling of "Dermatology Dignity Kits" to all seven sectors of Al-Jawzat.</p>
+                    </div>
+                    <div class="p-4 bg-blue-500/5 rounded-xl border-l-4 border-blue-500">
+                        <p><strong>Engineering:</strong> Improving surface drainage between tents to reduce humidity-driven fungal growth.</p>
+                    </div>
                 </div>
-                <div class="text-sm text-slate-500">
-                    Reported by: DentaTech Media Office
-                </div>
-            </footer>
+            </section>
 
         </article>
     </main>
 
+    <footer class="bg-white dark:bg-slate-900 py-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm italic">Documented by DentaTech Engineering | Kayan Relief Team © 2025</p>
+        </div>
+    </footer>
+
     <script>
-        // Initialize Icons
         lucide.createIcons();
     </script>
 </body>
