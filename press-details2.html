@@ -15,11 +15,12 @@
             theme: {
                 extend: {
                     fontFamily: { poppins: ['Poppins', 'sans-serif'] },
-                    colors: { primary: '#3b82f6' }
+                    colors: { primary: '#3b82f6', kayan: '#10b981' }
                 }
             }
         }
-        // Dark Mode Sync
+
+        // Theme Synchronization
         if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
@@ -29,121 +30,125 @@
         body { font-family: 'Poppins', sans-serif; }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
         .dark .glass-nav { background: rgba(15, 23, 42, 0.8); }
-        .hero-overlay { background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent); }
+        .hero-mesh {
+            background-color: #3b82f6;
+            background-image: radial-gradient(at 0% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                              radial-gradient(at 50% 0%, hsla(225,39%,20%,1) 0, transparent 50%);
+        }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen">
 
     <nav class="fixed w-full z-50 top-0 border-b border-slate-200 dark:border-slate-800 glass-nav">
-        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 text-primary font-bold">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-primary font-bold transition-transform hover:-translate-x-1">
                 <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
             </a>
-            <span class="text-xs font-bold tracking-widest uppercase opacity-60">Official Press Release</span>
+            <div class="hidden md:flex items-center gap-4">
+                <span class="text-xs font-bold px-3 py-1 bg-kayan/10 text-kayan rounded-full uppercase tracking-tighter">Event Coverage</span>
+            </div>
         </div>
     </nav>
 
     <header class="pt-32 pb-16 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl group border-4 border-white dark:border-slate-900">
-                <img src="conference-hero.jpg" alt="Kayan Launch Conference" class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 hero-overlay flex items-end p-8 md:p-12">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase">December 2025</span>
-                            <span class="text-white/60 text-sm italic">Gaza Governorate</span>
-                        </div>
-                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                            The Launch of <span class="text-primary">Kayan Relief Team</span>
-                        </h1>
-                    </div>
-                </div>
+            <div class="space-y-4 mb-8">
+                <h4 class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Official Launch</h4>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                    Kayan Relief Team: <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-kayan">A New Era of Humanitarian Aid</span>
+                </h1>
+            </div>
+            
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video border-8 border-white dark:border-slate-900">
+                <img src="conference-hero.jpg" alt="Kayan Launch Conference" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
             </div>
         </div>
     </header>
 
-    <main class="pb-24 px-6">
-        <article class="max-w-4xl mx-auto">
+    <main class="max-w-5xl mx-auto px-6 pb-24">
+        <div class="grid md:grid-cols-12 gap-12">
             
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="md:col-span-2 space-y-6 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">A New Era of Humanitarian Engineering</h2>
-                    <p>
-                        In December 2025, the official launch conference for the <strong>Kayan Relief Team</strong> was held under the leadership of its founder, <strong>Abdulrahman Shunnar</strong>. The event marked the transition of a dedicated group of volunteers into a structured humanitarian organization focused on aid distribution and specialized relief operations.
-                    </p>
-                    <p>
-                        The conference outlined the team's organizational structure, emphasizing the integration of engineering precision with humanitarian logistics to maximize the efficiency of aid reaching thousands of beneficiaries.
-                    </p>
-                </div>
-                <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm h-fit">
-                    <h3 class="font-bold mb-4 flex items-center gap-2"><i data-lucide="target" class="text-primary"></i> Core Objectives</h3>
-                    <ul class="text-sm space-y-3 opacity-80">
-                        <li>• Structured Aid Distribution</li>
-                        <li>• Volunteer Management Protocol</li>
-                        <li>• Real-time Impact Reporting</li>
-                        <li>• Engineering-led Logistics</li>
+            <aside class="md:col-span-4 space-y-8">
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-lg mb-6 flex items-center gap-2">
+                        <i data-lucide="info" class="text-primary w-5 h-5"></i> Event Details
+                    </h3>
+                    <ul class="space-y-6 text-sm">
+                        <li class="flex flex-col gap-1">
+                            <span class="text-slate-400 uppercase text-[10px] font-bold tracking-widest">Date</span>
+                            <span class="font-semibold text-base">December 2025</span>
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-slate-400 uppercase text-[10px] font-bold tracking-widest">Founder & Manager</span>
+                            <span class="font-semibold text-base">Abdulrahman Shunnar</span>
+                        </li>
+                        <li class="flex flex-col gap-1">
+                            <span class="text-slate-400 uppercase text-[10px] font-bold tracking-widest">Impact Goal</span>
+                            <span class="font-semibold text-base">Thousands of Beneficiaries</span>
+                        </li>
                     </ul>
                 </div>
-            </div>
 
-            <section class="mb-16 bg-primary/5 rounded-[2.5rem] p-8 md:p-12 border border-primary/10">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <h2 class="text-3xl font-bold italic">Leading the Change</h2>
-                        <p class="text-slate-600 dark:text-slate-400">
-                            As the founder and manager, Abdulrahman Shunnar established a volunteer management protocol designed to supervise operations across multiple sectors. The team has already demonstrated its capability by managing aid for thousands of people in its first operational phase.
-                        </p>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">AS</div>
-                            <div>
-                                <p class="font-bold">Abdulrahman Shunnar</p>
-                                <p class="text-xs opacity-60">Founder & Operations Manager</p>
-                            </div>
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-primary to-blue-700 text-white shadow-xl">
+                    <i data-lucide="quote" class="w-8 h-8 mb-4 opacity-50"></i>
+                    <p class="italic text-lg leading-relaxed mb-4">
+                        "Kayan was founded to ensure that humanitarian aid reaches those who need it most, with dignity and professional management."
+                    </p>
+                    <span class="font-bold text-sm">— Abdulrahman Shunnar</span>
+                </div>
+            </aside>
+
+            <div class="md:col-span-8 space-y-10">
+                <section class="prose prose-slate dark:prose-invert max-w-none">
+                    <h2 class="text-3xl font-bold mb-6">Establishing a Vision</h2>
+                    <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                        In December 2025, the **Kayan Relief Team** officially launched its operations. As the founder and manager, I established an organizational structure designed to streamline aid distribution and supervise large-scale humanitarian projects. The conference marked the beginning of a dedicated effort to serve thousands of beneficiaries in the Gaza Governorate.
+                    </p>
+
+                    <h3 class="text-2xl font-bold mt-10 mb-4">Core Objectives</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800 border-l-4 border-kayan">
+                            <h4 class="font-bold mb-2">Volunteer Management</h4>
+                            <p class="text-sm opacity-70">Overseeing dedicated teams to ensure efficient field operations.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800 border-l-4 border-primary">
+                            <h4 class="font-bold mb-2">Aid Distribution</h4>
+                            <p class="text-sm opacity-70">Managing systematic logistics for thousands of displaced families.</p>
                         </div>
                     </div>
-                    <div class="rounded-3xl overflow-hidden shadow-lg border-2 border-white dark:border-slate-800">
-                        <img src="management-team.jpg" alt="Abdulrahman Shunnar presenting" class="w-full h-auto">
-                    </div>
+
+                    <h3 class="text-2xl font-bold mt-10 mb-4">Key Achievements Highlighted</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        During the conference, the team presented a roadmap for humanitarian intervention, focusing on:
+                    </p>
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-kayan mt-1"></i>
+                            <span>Comprehensive operational plans for emergency relief.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-kayan mt-1"></i>
+                            <span>Successful supervision of volunteer protocols.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-kayan mt-1"></i>
+                            <span>Establishing partnerships for medical and engineering support.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="rounded-3xl overflow-hidden shadow-lg border-4 border-white dark:border-slate-900">
+                    <img src="team-meeting.jpg" alt="Team meeting during conference" class="w-full h-auto">
                 </div>
-            </section>
-
-            <section class="mb-16">
-                <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                    <i data-lucide="bar-chart" class="text-primary"></i> Initial Impact Metrics
-                </h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="p-6 text-center bg-white dark:bg-slate-900 rounded-2xl shadow-sm">
-                        <span class="block text-3xl font-bold text-primary mb-1">7000+</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60">Beneficiaries</span>
-                    </div>
-                    <div class="p-6 text-center bg-white dark:bg-slate-900 rounded-2xl shadow-sm">
-                        <span class="block text-3xl font-bold text-primary mb-1">50+</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60">Volunteers</span>
-                    </div>
-                    <div class="p-6 text-center bg-white dark:bg-slate-900 rounded-2xl shadow-sm">
-                        <span class="block text-3xl font-bold text-primary mb-1">100%</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60">Local Reach</span>
-                    </div>
-                    <div class="p-6 text-center bg-white dark:bg-slate-900 rounded-2xl shadow-sm">
-                        <span class="block text-3xl font-bold text-primary mb-1">Phase 1</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60">Completed</span>
-                    </div>
-                </div>
-            </section>
-
-            <blockquote class="text-center py-16 border-t border-slate-200 dark:border-slate-800">
-                <p class="text-2xl md:text-3xl font-medium italic mb-6">
-                    "Our mission is to breathe life into the ruins and ensure that dignity remains the foundation of all our relief efforts."
-                </p>
-                <cite class="text-primary font-bold not-italic">— Kayan Relief Team Manifesto</cite>
-            </blockquote>
-
-        </article>
+            </div>
+        </div>
     </main>
 
-    <footer class="py-12 text-center text-sm opacity-50 border-t border-slate-200 dark:border-slate-800">
-        &copy; 2026 Kayan Relief Team | Humanitarian Engineering Division
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <p class="text-slate-400 text-sm">© 2026 Kayan Relief Team Documentation | Abdulrahman Shunnar</p>
     </footer>
 
     <script>
