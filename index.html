@@ -46,15 +46,11 @@
         body { font-family: 'Poppins', sans-serif; transition: background-color 0.3s, color 0.3s; }
         .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
 
-        /* Theme Toggle Flip */
-        #theme-toggle { perspective: 1000px; position: relative; display: flex; align-items: center; justify-content: center; }
-        #sun-icon, #moon-icon { transition: transform 0.6s, opacity 0.4s; }
-
-        html:not(.dark) #moon-icon { opacity: 1; transform: rotateY(0deg); }
-        html:not(.dark) #sun-icon { opacity: 0; transform: rotateY(-180deg); }
-
-        .dark #sun-icon { opacity: 1; transform: rotateY(0deg); }
-        .dark #moon-icon { opacity: 0; transform: rotateY(180deg); }
+        /* Theme Toggle*/
+       <button id="theme-toggle" class="w-12 h-12 glass rounded-xl focus:outline-none transition-transform active:scale-95">
+    <span id="sun-icon" class="text-xl">☀️</span>
+    <span id="moon-icon" class="text-xl">🌙</span>
+</button>
 
         .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
     </style>
