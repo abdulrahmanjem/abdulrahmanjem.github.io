@@ -12,42 +12,44 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 2. منطق تبديل وقلب الأيقونات */
-#theme-toggle {
-    position: relative; /* ضروري لعمل الـ absolute بداخلها */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+/* Theme Toggle Simple Fade & Scale */
+#theme-toggle { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
 }
 
-#theme-toggle i {
-    position: absolute; /* هذا ما سيجعلهم فوق بعضهم تماماً */
-    transition: transform 0.6s, opacity 0.4s;
+#sun-icon, #moon-icon { 
+    transition: all 0.4s ease; /* تنعيم الحركة */
+    position: absolute;
 }
 
-html:not(.dark) #sun-icon { opacity: 0; transform: rotateY(-180deg); }
-.dark #moon-icon { opacity: 0; transform: rotateY(180deg); }
-
-/* وضع النهار */
-html:not(.dark) #moon-icon {
-    opacity: 1;
-    transform: rotateY(0deg);
+/* الحالة الافتراضية (الوضع النهاري): القمر ظاهر والشمس مخفية */
+html:not(.dark) #moon-icon { 
+    opacity: 1; 
+    transform: scale(1); 
 }
-html:not(.dark) #sun-icon {
-    opacity: 0;
-    transform: rotateY(-180deg);
+html:not(.dark) #sun-icon { 
+    opacity: 0; 
+    transform: scale(0.5); /* تبدو كأنها قادمة من البعيد */
 }
 
-/* وضع الليل */
-.dark #sun-icon {
-    opacity: 1;
-    transform: rotateY(0deg);
+/* حالة الوضع الليلي (Dark): الشمس تظهر والقمر يختفي */
+.dark #sun-icon { 
+    opacity: 1; 
+    transform: scale(1); 
 }
-.dark #moon-icon {
-    opacity: 0;
-    transform: rotateY(180deg);
+.dark #moon-icon { 
+    opacity: 0; 
+    transform: scale(0.5); 
+}
+
+.glass { 
+    background: rgba(255,255,255,0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255,255,255,0.1); 
 }
 
 /* تأثير الضغط */
