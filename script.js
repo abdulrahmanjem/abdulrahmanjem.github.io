@@ -46,29 +46,38 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 // 1. تهيئة المكتبة (ضع المفتاح الخاص بك هنا)
-(function() {
-    emailjs.init("4rrgjpYZMS7AQUB4s"); 
-})();
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-// 2. تفعيل إرسال النموذج
-const contactForm = document.getElementById('contact-form'); // تأكد أن الـ ID موجود في الـ HTML
+    const btn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    
+    // تغيير حالة الزر أثناء الإرسال
+    btnText.innerText = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+    // استبدل المعرفات التالية بالقيم الخاصة بك من لوحة تحكم EmailJS
+    const serviceID = 'service_0mnao5o';
+    const templateID = 'template_qii401w';
 
-        const btn = this.querySelector('button');
-        btn.innerText = 'Sending...';
-
-        // إرسال البيانات
-        emailjs.sendForm('service_0mnao5o', 'template_qii401w', this)
-            .then(() => {
-                alert('تم إرسال رسالتك بنجاح!');
-                btn.innerText = 'Send Message →';
-                this.reset();
-            }, (err) => {
-                alert('حدث خطأ أثناء الإرسال، حاول مرة أخرى.');
-                btn.innerText = 'Send Message →';
-            });
-    });
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            btnText.innerText = 'Sent Successfully! ✅';
+            btn.style.backgroundColor = '#10b981'; // تغيير اللون للأخضر
+            this.reset(); // تفريغ الخانات
+        }, (err) => {
+            btnText.innerText = 'Error! ❌';
+            btn.style.backgroundColor = '#ef4444'; // تغيير اللون للأحمر
+            alert("فشل الإرسال: " + JSON.stringify(err));
+        })
+        .finally(() => {
+            setTimeout(() => {
+                btnText.innerText = 'Send Message →';
+                btn.style.backgroundColor = ''; 
+                btn.style.opacity = '1';
+                btn.disabled = false;
+            }, 5000); // العودة للحالة الطبيعية بعد 5 ثوانٍ
+        });
+});
 }
