@@ -1,90 +1,25 @@
-/* إخفاء الأيقونات افتراضياً */
-#sun-icon,
-#moon-icon {
-    opacity: 0;
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
 }
 
-/* 1. الإعدادات العامة والخطوط */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f4f4;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    font-family: sans-serif;
 }
 
-/* Theme Toggle Simple Fade & Scale */
-#theme-toggle { 
-    position: relative; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden;
-}
+header { padding: 20px; display: flex; justify-content: space-between; }
 
-#sun-icon, #moon-icon { 
-    transition: all 0.4s ease; /* تنعيم الحركة */
-    position: absolute;
-}
-
-/* الحالة الافتراضية (الوضع النهاري): القمر ظاهر والشمس مخفية */
-html:not(.dark) #moon-icon { 
-    opacity: 1; 
-    transform: scale(1); 
-}
-html:not(.dark) #sun-icon { 
-    opacity: 0; 
-    transform: scale(0.5); /* تبدو كأنها قادمة من البعيد */
-}
-
-/* حالة الوضع الليلي (Dark): الشمس تظهر والقمر يختفي */
-.dark #sun-icon { 
-    opacity: 1; 
-    transform: scale(1); 
-}
-.dark #moon-icon { 
-    opacity: 0; 
-    transform: scale(0.5); 
-}
-
-.glass { 
-    background: rgba(255,255,255,0.05); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255,255,255,0.1); 
-}
-
-/* تأثير الضغط */
-#theme-toggle:active {
-    transform: scale(0.9);
-}
-
-/* باقي الكود كما هو */
-.hero-gradient {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-}
-
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-.dark ::-webkit-scrollbar-track { background: #0f172a; }
-::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #2563eb; }
-
-.logo-container img,
-.aspect-
-
-\[3\/4\]
-
- img {
-    transition: opacity 0.4s ease-in-out;
-}
-
-::selection {
-    background: #3b82f6;
-    color: white;
+.project-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
 }
