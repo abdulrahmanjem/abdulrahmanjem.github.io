@@ -1,58 +1,33 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عبد الرحمن | Portfolio</title>
-    <style>
-        :root {
-            --bg: #ffffff; --text: #1a1a1a; --primary: #3b82f6;
-        }
-        [data-theme="dark"] {
-            --bg: #0f172a; --text: #f8fafc; --primary: #38bdf8;
-        }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.3s; margin: 0; }
-        nav { display: flex; justify-content: space-between; padding: 20px; align-items: center; }
-        .hero { text-align: center; padding: 100px 20px; }
-        .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; background: var(--primary); color: white; }
-    </style>
+    <title>محفظة أعمالي | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
+    <header>
+        <nav>
+            <div class="logo">اسمي</div>
+            <button id="theme-toggle">تبديل الوضع</button>
+            <button id="lang-toggle">English / العربية</button>
+        </nav>
+    </header>
 
-<nav>
-    <div class="logo">ABDULRAHMAN</div>
-    <div>
-        <button class="btn" onclick="toggleLanguage()">AR/EN</button>
-        <button class="btn" onclick="toggleTheme()">☀️/🌙</button>
-    </div>
-</nav>
+    <section id="hero">
+        <h1 data-en="Hi, I'm a Developer" data-ar="مرحباً، أنا مطور برمجيات">مرحباً، أنا مطور برمجيات</h1>
+        <p data-en="Cybersecurity & Web Expert" data-ar="خبير أمن سيبراني وتطوير ويب"></p>
+    </section>
 
-<section class="hero">
-    <h1 id="title">مرحباً، أنا عبد الرحمن</h1>
-    <p id="desc">مبرمج ويب وخبير أمن سيبراني</p>
-</section>
+    <section id="projects">
+        <h2 data-en="My Projects" data-ar="مشاريعي">مشاريعي</h2>
+        <div class="project-card">
+            <h3>اسم المشروع</h3>
+            <p>وصف مختصر للمشروع والتقنيات المستخدمة.</p>
+        </div>
+    </section>
 
-<script>
-    // التبديل بين الأوضاع
-    function toggleTheme() {
-        const root = document.documentElement;
-        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-    }
-
-    // تأمين البيانات (XSS Prevention)
-    function sanitize(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
-    // الترجمة البسيطة
-    function toggleLanguage() {
-        const dir = document.documentElement.dir === "rtl" ? "ltr" : "rtl";
-        document.documentElement.dir = dir;
-        document.documentElement.lang = dir === "rtl" ? "ar" : "en";
-        document.getElementById('title').innerText = dir === "rtl" ? "مرحباً، أنا عبد الرحمن" : "Hi, I am Abdulrahman";
-    }
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
