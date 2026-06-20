@@ -1,20 +1,17 @@
-// تبديل الوضع (Dark/Light)
-const themeBtn = document.getElementById('theme-toggle');
-themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+// تبديل الوضع الليلي
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
 });
 
 // تبديل اللغة
-const langBtn = document.getElementById('lang-toggle');
-langBtn.addEventListener('click', () => {
-    const isRtl = document.documentElement.dir === 'rtl';
-    document.documentElement.dir = isRtl ? 'ltr' : 'rtl';
-    document.documentElement.lang = isRtl ? 'en' : 'ar';
+const langToggle = document.getElementById('lang-toggle');
+langToggle.addEventListener('click', () => {
+    const isAr = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isAr ? 'ltr' : 'rtl';
+    document.documentElement.lang = isAr ? 'en' : 'ar';
     
-    // تبديل النصوص المترجمة
     document.querySelectorAll('[data-en]').forEach(el => {
-        const temp = el.innerText;
-        el.innerText = isRtl ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-        el.setAttribute('data-en', temp);
+        el.textContent = isAr ? el.getAttribute('data-en') : el.getAttribute('data-ar');
     });
 });
