@@ -1,414 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بورتوفوليو المهندس عبد الرحمن | الواجهة الرقمية المطورة</title>
+    <title>عبد الرحمن | Portfolio</title>
     <style>
-        /* إعدادات المتغيرات والألوان المتناسقة لبيئة احترافية */
         :root {
-            --bg-main: #0b0f19;
-            --bg-surface: #131c2e;
-            --bg-card: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-cyber: #38bdf8;
-            --accent-cyber-glow: rgba(56, 189, 248, 0.25);
-            --accent-success: #4ade80;
-            --accent-error: #f87171;
-            --border-color: #273549;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --bg: #ffffff; --text: #1a1a1a; --primary: #3b82f6;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        [data-theme="dark"] {
+            --bg: #0f172a; --text: #f8fafc; --primary: #38bdf8;
         }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            font-family: var(--font-family);
-            line-height: 1.6;
-            padding: 0;
-        }
-
-        /* تنسيق الهيدر العلوي */
-        header {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            padding: 40px 30px;
-            border-bottom: 3px solid var(--accent-cyber);
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .header-title {
-            font-size: 24pt;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .header-subtitle {
-            font-size: 13pt;
-            color: var(--accent-cyber);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* الحاويات الرئيسية */
-        .main-container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* كروت الأقسام المشتركة */
-        .section-box {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        h2 {
-            font-size: 15pt;
-            color: #ffffff;
-            margin-bottom: 15px;
-            border-right: 4px solid var(--accent-cyber);
-            padding-right: 12px;
-            display: flex;
-            align-items: center;
-        }
-
-        p {
-            font-size: 11pt;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* لوحة التحكم والتحليل */
-        .grid-two-cols {
-            display: block;
-        }
-        
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            margin-top: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 15px;
-            font-size: 10.5pt;
-        }
-
-        th {
-            background-color: #1e293b;
-            color: var(--accent-cyber);
-            text-align: right;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            font-weight: 600;
-        }
-
-        td {
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            background-color: #162235;
-        }
-
-        tr:nth-child(even) td {
-            background-color: #1a273d;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 9pt;
-            font-weight: bold;
-        }
-
-        .badge-danger { background-color: rgba(248, 113, 113, 0.2); color: var(--accent-error); border: 1px solid var(--accent-error); }
-        .badge-warning { background-color: rgba(251, 146, 60, 0.2); color: #fb923c; border: 1px solid #fb923c; }
-        .badge-success { background-color: rgba(74, 222, 128, 0.2); color: var(--accent-success); border: 1px solid var(--accent-success); }
-
-        /* نموذج الاتصال المطور والحصين */
-        .secure-form {
-            background-color: var(--bg-card);
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid #334155;
-            margin-top: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            color: #cbd5e1;
-            font-size: 10pt;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: #ffffff;
-            font-size: 10.5pt;
-            font-family: var(--font-family);
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyber);
-            box-shadow: 0 0 8px var(--accent-cyber-glow);
-        }
-
-        .submit-btn-container {
-            text-align: left;
-        }
-
-        .cyber-btn {
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            color: #ffffff;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 10.5pt;
-            font-weight: bold;
-            cursor: pointer;
-            border-bottom: 3px solid #025a87;
-        }
-
-        /* كود برمي وعرض مقتطفات برمجية */
-        pre {
-            background-color: #090d16;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-cyber);
-            overflow-x: auto;
-            direction: ltr;
-            text-align: left;
-            margin: 15px 0;
-        }
-
-        code {
-            font-family: 'Consolas', 'Courier New', Courier, monospace;
-            color: #e2e8f0;
-            font-size: 9.5pt;
-        }
-
-        /* التذييل للتقرير */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-secondary);
-            font-size: 9.5pt;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
-            background-color: var(--bg-surface);
-        }
-
-        @page {
-            size: A4;
-            margin: 15mm 12mm;
-            background-color: #0b0f19;
-        }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.3s; margin: 0; }
+        nav { display: flex; justify-content: space-between; padding: 20px; align-items: center; }
+        .hero { text-align: center; padding: 100px 20px; }
+        .btn { padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; background: var(--primary); color: white; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-title">التقرير الهندسي والأمني الشامل لتطوير البورتوفوليو</div>
-        <div class="header-subtitle">إعداد: المستشار والمهندس التقني الأول لـ عبد الرحمن</div>
-    </header>
-
-    <div class="main-container">
-
-        <!-- القسم الأول: المقدمة التقييمية -->
-        <div class="section-box">
-            <h2>1. نظرة عامة وتحليل البنية الحالية</h2>
-            <p>
-                بصفتي المستشار الهندسي والأمني المشرف على ملفك الرقمي، قمت بإجراء فحص ومراجعة معمارية للموقع الشخصي الخاص بك المستضاف على منصة <strong>GitHub Pages</strong> عبر الرابط <code>abdulrahmanjem.github.io</code>. 
-            </p>
-            <p>
-                الاستضافة على خوادم GitHub تمنحك ميزة استقرار هائلة وحماية مدمجة ضد هجمات حجب الخدمة (DDoS) وتوفر شهادة تشفير <strong>SSL/TLS (HTTPS)</strong> تلقائية وموثوقة بنسبة 100%، مما يمنع هجمات الاعتراض أو التسمم الشبكي (Man-in-the-Middle). ومع ذلك، بما أن البورتوفوليو يمثل هويتك البرمجية أمام مسؤولي التوظيف والعملاء، يجب الارتقاء به من مجرد صفحة استاتيكية إلى نظام واجهات متكامل يوازن بصرامة وعمق بين <strong>الجمالية البصرية الفائقة</strong> و<strong>التحصين البرمجي الصارم</strong>.
-            </p>
-        </div>
-
-        <!-- القسم الثاني: مصفوفة المشاكل والحلول الهندسة والأمنية -->
-        <div class="section-box">
-            <h2>2. جدول مصفوفة التدقيق الأمني والهندسي (Vulnerability & UI Matrix)</h2>
-            <p>يوضح الجدول التالي كافة الثغرات البرمجية والمشاكل التصميمية المكتشفة مع آليات حلها الجذري فوراً:</p>
-            
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">نوع المشكلة / الثغرة</th>
-                            <th style="width: 15%;">مستوى الخطورة</th>
-                            <th style="width: 35%;">التأثير التقني المتوقع</th>
-                            <th style="width: 25%;">الحل التقني الجذري والمطبق</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>XSS (حقن النصوص الخبيثة)</strong></td>
-                            <td><span class="badge badge-danger">حرج وعالٍ</span></td>
-                            <td>حقن نصوص سكريبت خبيثة في حقول الإدخال لتنفيذ هجمات على متصفح الزائر أو سرقة الجلسات.</td>
-                            <td>تنظيف وتحييد المدخلات (Sanitization) باستخدام تقنية DOMPurify أو التطهير النصي الصارم.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>سبام البوتات (Contact Form Spam)</strong></td>
-                            <td><span class="badge badge-warning">متوسط</span></td>
-                            <td>إغراق بريدك الشخصي بآلاف الرسائل الاحتيالية والعشوائية، مما يعطل تواصل العملاء الحقيقيين.</td>
-                            <td>دمج طبقة حماية برمجية مع فحص Regex صارم وإنشاء آلية حظر البوتات (HoneyPot/Rate Limiting).</td>
-                        </tr>
-                        <tr>
-                            <td><strong>ضعف أداء الصور وبطء التحميل</strong></td>
-                            <td><span class="badge badge-warning">متوسط</span></td>
-                            <td>انخفاض تقييم الموقع في مؤشرات Google Web Vitals وهجر الزوار للموقع لبطء التحميل.</td>
-                            <td>التحويل الفوري لكافة الصور المرجعية إلى صيغة <strong>WebP</strong> وضبط ميزة التحميل الكسول.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>جمود الواجهة وغياب تجربة UI/UX</strong></td>
-                            <td><span class="badge badge-success">منخفض/تحسيني</span></td>
-                            <td>ملل الزائر وعدم إبراز هويتك كمطور محترف أمام الشركات المهتمة بالتفاصيل الدقيقة.</td>
-                            <td>إضافة تأثيرات حركية دقيقة (Micro-interactions) وتجاوب كامل متكيف مع جميع الهواتف.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- القسم الثالث: الكود المصدري الكامل المطور والآمن -->
-        <div class="section-box">
-            <h2>3. الهندسة البرمجية المعتمدة: كود الواجهة والتحصين الكامل</h2>
-            <p>
-                تمت إعادة صياغة وبناء شفرة قسم الاتصال واستعراض الملف برمجياً بالكامل. يتميز هذا الكود بخلوه التام من أي ثغرات، مع توثيق الأسطر لتسهيل دمجها الفوري في موقعك دون الحاجة للاعتماد على أي أطر عمل ثقيلة:
-            </p>
-
-            <pre><code>&lt;!-- قسم الاتصال الآمن والمطور برمجياً وبصرياً لـ عبد الرحمن --&gt;
-&lt;section id="secure-contact" class="contact-section"&gt;
-    &lt;div class="form-container"&gt;
-        &lt;h3 class="form-title"&gt;ابدأ مشروعك الآمن الآن&lt;/h3&gt;
-        
-        &lt;form id="cyberContactForm" onsubmit="processSecureForm(event)"&gt;
-            &lt;div class="form-group"&gt;
-                &lt;label for="secName"&gt;الاسم الكامل (مكتوب بنظام التحقق البرمي):&lt;/label&gt;
-                &lt;input type="text" id="secName" required minlength="3" maxlength="60" placeholder="مثال: عبد الرحمن"&gt;
-            &lt;/div&gt;
-            
-            &lt;div class="form-group"&gt;
-                &lt;label for="secEmail"&gt;البريد الإلكتروني الموثق:&lt;/label&gt;
-                &lt;input type="email" id="secEmail" required placeholder="name@example.com"&gt;
-            &lt;/div&gt;
-            
-            &lt;div class="form-group"&gt;
-                &lt;label for="secMessage"&gt;تفاصيل الرسالة (تخضع للتنظيف الفوري لحظر ثغرات الحقن):&lt;/label&gt;
-                &lt;textarea id="secMessage" rows="5" required minlength="10" maxlength="1500" placeholder="اكتب تفاصيل مشروعك هنا..."&gt;&lt;/textarea&gt;
-            &lt;/div&gt;
-            
-            &lt;div class="submit-btn-container"&gt;
-                &lt;button type="submit" class="cyber-btn"&gt;إرسال مشفر وآمن&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/form&gt;
-        &lt;div id="cyberStatusMessage" style="margin-top: 15px; text-align: center; font-weight: bold;"&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/section&gt;
-
-&lt;script&gt;
-function processSecureForm(event) {
-    event.preventDefault();
-    const statusMsg = document.getElementById('cyberStatusMessage');
-    
-    // سحب البيانات من الواجهة
-    const rawName = document.getElementById('secName').value.trim();
-    const rawEmail = document.getElementById('secEmail').value.trim();
-    const rawMessage = document.getElementById('secMessage').value.trim();
-    
-    // 1. التطهير والتحصين الأمني ضد ثغرات XSS وحقن الأكواد
-    const cleanName = sanitizePayload(rawName);
-    const cleanMessage = sanitizePayload(rawMessage);
-    
-    // 2. التحقق من صحة صياغة البريد الإلكتروني (Regex) لمنع التلاعب البرمي
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(rawEmail)) {
-        statusMsg.style.color = '#f87171';
-        statusMsg.innerText = "فشل الأمان: صيغة البريد الإلكتروني غير صالحة.";
-        return false;
-    }
-    
-    // نجاح الفحص الداخلي للبيانات
-    statusMsg.style.color = '#4ade80';
-    statusMsg.innerText = "تم فحص البيانات وتطهيرها بنجاح! جاري التمرير الآمن للخادم المتصل.";
-    
-    // إعادة تعيين النموذج تلقائياً لمنع تكرار الإرسال
-    document.getElementById('cyberContactForm').reset();
-}
-
-// دالة تدمير وتحييد الأكواد وحظر وسوم HTML للحماية القصوى
-function sanitizePayload(inputString) {
-    const element = document.createElement('div');
-    element.textContent = inputString;
-    return element.innerHTML;
-}
-&lt;/script&gt;</code></pre>
-        </div>
-
-        <!-- القسم الرابع: خطة تطبيق الـ SEO الفوري وتحسين المحركات -->
-        <div class="section-box">
-            <h2>4. النظافة البرمجية وتحسين الظهور في محركات البحث (SEO & Performance)</h2>
-            <p>
-                لضمان ظهور موقعك في مقدمة محركات البحث عند كتابة اسمك من قبل مدراء الشركات، يجب تضمين هذه الأكواد والبيانات الوصفية (Meta Tags) في جزء الـ <code>&lt;head&gt;</code> الخاص بملف <code>index.html</code> فوراً:
-            </p>
-            <pre><code>&lt;!-- تحسين محركات البحث والأرشفة الفورية لملف عبد الرحمن --&gt;
-&lt;meta name="description" content="البورتوفوليو الرسمي للمهندس عبد الرحمن - خبير ومبرمج ويب Full-Stack ومتخصص في حلول الأمن السيبراني وحماية التطبيقات."&gt;
-&lt;meta name="keywords" content="عبد الرحمن, مبرمج ويب, أمن سيبراني, بورتوفوليو, Full-Stack Developer, Cybersecurity, Clean Code"&gt;
-&lt;meta name="author" content="عبد الرحمن"&gt;
-
-&lt;!-- بطاقات مواقع التواصل الاجتماعي (Open Graph) للظهور بشكل احترافي عند مشاركة الرابط --&gt;
-&lt;meta property="og:title" content="بورتوفوليو المهندس عبد الرحمن | حماية وأداء فائق"&gt;
-&lt;meta property="og:description" content="تصفح المشاريع والحلول التقنية المطورة بأحدث التقنيات وأعلى معايير الأمان."&gt;
-&lt;meta property="og:type" content="website"&gt;
-&lt;meta property="og:url" content="https://abdulrahmanjem.github.io/"&gt;</code></pre>
-        </div>
-
-        <!-- القسم الخامس: توصيات الخادم واستباق الهجمات -->
-        <div class="section-box">
-            <h2>5. توصيات مهندس الأمن السيبراني لاستدامة الحصانة</h2>
-            <p>
-                بما أن الاستضافة استاتيكية، ننصحك بالخطوات الاستباقية التالية لضمان عدم حدوث أي اختراق أو تشويه للملف البرمجي:
-            </p>
-            <p>
-                <strong>أولاً: حماية حساب GitHub وتفعيل التحقق الثنائي (2FA):</strong> إن نقطة الضعف الوحيدة في مواقع GitHub Pages هي اختراق الحساب نفسه. تأكد من تفعيل تطبيق التحقق الثنائي عبر هافتك وحظر استخدام كلمة المرور التقليدية في عمليات الـ Push، والاستعاضة عنها بمفاتيح <strong>SSH Keys</strong> مشفرة بقوة <code>RSA 4096</code> أو <code>ED25519</code>.
-            </p>
-            <p>
-                <strong>ثانياً: استخدام أدوات تتبع الثغرات التلقائية:</strong> قم بتفعيل أداة <strong>GitHub Dependabot</strong> في مستودع الكود (Repository) الخاص بك، حيث تقوم الأداة بفحص أي مكتبات جافا سكريبت خارجية مستخدمة وتنبيهك فوراً وتلقائياً في حال صدور أي ثغرة أمنية مسجلة عالمياً في قواعد بيانات CVE.
-            </p>
-        </div>
-
+<nav>
+    <div class="logo">ABDULRAHMAN</div>
+    <div>
+        <button class="btn" onclick="toggleLanguage()">AR/EN</button>
+        <button class="btn" onclick="toggleTheme()">☀️/🌙</button>
     </div>
+</nav>
 
-    <footer>
-        جميع الحقوق محفوظة للمستشار التقني الخاص بـ عبد الرحمن © 2026 | مراجعة برمجية كاملة وحصانة أمنية شاملة.
-    </footer>
+<section class="hero">
+    <h1 id="title">مرحباً، أنا عبد الرحمن</h1>
+    <p id="desc">مبرمج ويب وخبير أمن سيبراني</p>
+</section>
 
+<script>
+    // التبديل بين الأوضاع
+    function toggleTheme() {
+        const root = document.documentElement;
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    }
+
+    // تأمين البيانات (XSS Prevention)
+    function sanitize(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // الترجمة البسيطة
+    function toggleLanguage() {
+        const dir = document.documentElement.dir === "rtl" ? "ltr" : "rtl";
+        document.documentElement.dir = dir;
+        document.documentElement.lang = dir === "rtl" ? "ar" : "en";
+        document.getElementById('title').innerText = dir === "rtl" ? "مرحباً، أنا عبد الرحمن" : "Hi, I am Abdulrahman";
+    }
+</script>
 </body>
 </html>
