@@ -1,17 +1,35 @@
-// تبديل الوضع الليلي
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+// 1. Video Scrubbing
+const video = document.getElementById('bgVideo');
+let isSeeking = false;
+window.addEventListener('mousemove', (e) => {
+    if (isSeeking) return;
+    isSeeking = true;
+    const delta = e.movementX;
+    const SENSITIVITY = 0.8;
+    let targetTime = video.currentTime + (delta / window.innerWidth) * SENSITIVITY * video.duration;
+    video.currentTime = Math.max(0, Math.min(targetTime, video.duration));
+    setTimeout(() => isSeeking = false, 50);
 });
 
-// تبديل اللغة
-const langToggle = document.getElementById('lang-toggle');
-langToggle.addEventListener('click', () => {
-    const isAr = document.documentElement.dir === 'rtl';
-    document.documentElement.dir = isAr ? 'ltr' : 'rtl';
-    document.documentElement.lang = isAr ? 'en' : 'ar';
-    
-    document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = isAr ? el.getAttribute('data-en') : el.getAttribute('data-ar');
-    });
-});
+// 2. Typewriter Effect
+const text = "Glad you stopped in. Good taste tends to find us. Now, what are we building?";
+const el = document.getElementById('typewriter');
+let i = 0;
+setTimeout(() => {
+    const interval = setInterval(() => {
+        el.innerHTML = text.slice(0, i) + '<span class="cursor">|</span>';
+        i++;
+        if (i > text.length) { clearInterval(interval); el.innerText = text; }
+    }, 38);
+}, 600);
+
+// 3. UI Animation & Clipboard
+setTimeout(() => {
+    document.getElementById('pillContainer').style.opacity = '1';
+    document.getElementById('pillContainer').style.transform = 'translateY(0)';
+}, 400);
+
+document.getElementById('copyBtn').onclick = () => {
+    navigator.clipboard.writeText("hello@mainframe.co");
+    alert("Email copied to clipboard!");
+};
