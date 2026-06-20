@@ -1,38 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium">
-    <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root { --font-heading: 'HelveticaNowDisplay-Medium'; --font-body: 'HelveticaNowDisplayW01-Rg'; }
-        body { font-family: var(--font-body); }
-        .font-heading { font-family: var(--font-heading); }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor { animation: blink 1s step-end infinite; }
-        .pill-animation { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="البورتوفوليو الرقمي لعبد الرحمن - مطور ويب ومختص أمن سيبراني">
+    <title>عبد الرحمن | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="overflow-hidden">
-    <video id="bgVideo" class="fixed inset-0 w-full h-full object-cover object-[70%_center] z-0" muted playsinline preload="auto">
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260530_042513_df96a13b-6155-4f6e-8b93-c9dee66fba08.mp4" type="video/mp4">
-    </video>
+<body>
+    <header>
+        <nav>
+            <h1>عبد الرحمن</h1>
+        </nav>
+    </header>
 
-    <nav class="fixed top-0 w-full px-5 sm:px-8 py-4 sm:py-5 flex justify-between items-center z-20">
-        <div class="flex gap-3 text-[21px] sm:text-[26px] font-heading tracking-tight">Mainframe® <span class="text-[25px] sm:text-[30px] select-none">✳︎</span></div>
-        <div class="hidden md:flex text-[23px] gap-2"><span>Labs,</span> <span>Studio,</span> <span>Openings,</span> <span>Shop</span></div>
-        <a href="#" class="hidden md:block text-[23px] underline underline-offset-2 hover:opacity-60">Get in touch</a>
-    </nav>
-
-    <main class="relative z-10 h-screen flex flex-col justify-end pb-12 md:justify-center md:pb-0 px-5 sm:px-8 md:px-10 max-w-xl">
-        <div class="blur-[4px] select-none pointer-events-none mb-6 text-[clamp(18px,4vw,26px)]">Hey there, meet A.R.I.A,<br>Mainframe's Adaptive Response Interface Agent</div>
-        <p id="typewriter" class="text-[clamp(18px,4vw,26px)] min-h-[54px] mb-6"></p>
-        <div id="pillContainer" class="flex flex-wrap gap-y-1 pill-animation">
-            <button class="bg-white px-5 py-[0.3em] rounded-full text-[15px] border border-black/10 hover:bg-black hover:text-white transition">Pitch us an idea</button>
-            <button class="bg-white px-5 py-[0.3em] rounded-full text-[15px] border border-black/10 hover:bg-black hover:text-white transition">Come work here</button>
-            <button id="copyBtn" class="border border-white text-white px-5 py-[0.3em] rounded-full text-[15px] hover:bg-white hover:text-black transition">Reach us: hello@mainframe.co</button>
-        </div>
+    <main>
+        <section id="hero">
+            <h2>أبني حلولاً رقمية تجمع بين الأناقة والحصانة الأمنية.</h2>
+        </section>
+        
+        <section id="projects">
+            </section>
     </main>
 
     <script src="script.js"></script>
