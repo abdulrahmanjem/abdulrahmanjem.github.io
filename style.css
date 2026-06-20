@@ -3,7 +3,7 @@
     --text-color: #333;
 }
 
-body.dark-mode {
+[data-theme="dark"] {
     --bg-color: #1a1a1a;
     --text-color: #f4f4f4;
 }
@@ -11,15 +11,8 @@ body.dark-mode {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: 0.3s;
     font-family: sans-serif;
 }
 
 header { padding: 20px; display: flex; justify-content: space-between; }
-
-.project-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-}
