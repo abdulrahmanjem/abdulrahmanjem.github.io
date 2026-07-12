@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPENHOUER SYSTEMS | الأنظمة البرمجية الذكية</title>
-    <!-- Google Fonts -->
+    <title>OPENHOUER SYSTEMS | Intelligent Software Solutions</title>
+    <!-- Google Fonts (Cairo for Arabic, Plus Jakarta Sans for English) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- المتغيرات والألوان الأساسية للهوية البصرية --- */
+        /* --- Brand Visual Identity Variables --- */
         :root {
-            --primary-dark: #031c27;      /* الأزرق الداكن من اللوجو */
-            --primary-cream: #f6f5f0;     /* الخلفية الكريمية الفاتحة */
-            --accent-yellow: #f5b335;     /* النقطة الصفراء المميزة */
+            --primary-dark: #031c27;      
+            --primary-cream: #f6f5f0;     
+            --accent-yellow: #f5b335;     
             --text-dark: #1a2b32;
             --text-light: #ffffff;
             --card-bg: #ffffff;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* --- الإعدادات العامة --- */
+        /* Set Arabic Font when html lang is 'ar' */
+        html[lang="ar"] {
+            --font-family: 'Cairo', sans-serif;
+        }
+
+        /* --- General Reset --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-family);
             scroll-behavior: smooth;
         }
 
@@ -37,7 +43,7 @@
             line-height: 1.6;
         }
 
-        /* --- الهيدر والقائمة --- */
+        /* --- Header & Navigation --- */
         header {
             background-color: rgba(3, 28, 39, 0.95);
             backdrop-filter: blur(10px);
@@ -45,7 +51,6 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -64,20 +69,22 @@
             color: var(--text-light);
             letter-spacing: 1px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
         }
 
         .logo span {
             color: var(--accent-yellow);
-            margin-right: 2px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 30px;
-            align-items: center;
         }
 
         .nav-links a {
@@ -92,13 +99,33 @@
             color: var(--accent-yellow);
         }
 
+        /* Language Switcher Button */
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--text-light);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-yellow);
+        }
+
         .cta-btn {
             background-color: var(--accent-yellow);
             color: var(--primary-dark) !important;
             padding: 10px 24px;
             border-radius: 8px;
             font-weight: 700 !important;
+            text-decoration: none;
             box-shadow: 0 4px 15px rgba(245, 179, 53, 0.3);
+            transition: var(--transition);
         }
 
         .cta-btn:hover {
@@ -106,14 +133,13 @@
             box-shadow: 0 6px 20px rgba(245, 179, 53, 0.5);
         }
 
-        /* --- قسم الهيرو الرئيسي (Hero Section) --- */
+        /* --- Hero Section --- */
         .hero {
             background-color: var(--primary-dark);
             color: var(--text-light);
-            padding: 180px 20px 100px 20px;
+            padding: 180px 20px 120px 20px;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .hero::after {
@@ -127,11 +153,13 @@
             transform: skewY(-2deg);
         }
 
+        html[lang="ar"] .hero::after {
+            transform: skewY(2deg); /* Adjust angle for Arabic RTL visual harmony */
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
 
         .badge {
@@ -143,6 +171,7 @@
             display: inline-block;
             margin-bottom: 24px;
             color: var(--accent-yellow);
+            font-weight: 500;
         }
 
         .hero h1 {
@@ -156,15 +185,15 @@
             font-size: 18px;
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 40px;
-            max-width: 600px;
+            max-width: 620px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* --- قسم الخدمات والمميزات (Linkio Style Grid) --- */
+        /* --- Services/Features Section --- */
         .services {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 40px 20px;
         }
 
@@ -174,7 +203,7 @@
         }
 
         .section-title h2 {
-            font-size: 32px;
+            font-size: 34px;
             color: var(--primary-dark);
             margin-bottom: 15px;
         }
@@ -194,24 +223,27 @@
             background: var(--card-bg);
             padding: 40px 30px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.03);
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
         }
 
+        /* Direction-aware border indicator */
         .card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             width: 4px;
             height: 100%;
-            background: var(--primary-dark);
+            background: var(--accent-yellow);
             opacity: 0;
             transition: var(--transition);
         }
+        
+        /* Left border for LTR, Right border for RTL */
+        html[dir="ltr"] .card::before { left: 0; }
+        html[dir="rtl"] .card::before { right: 0; }
 
         .card:hover {
             transform: translateY(-5px);
@@ -231,12 +263,11 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: var(--primary-dark);
             margin-bottom: 24px;
         }
 
         .card h3 {
-            font-size: 20px;
+            font-size: 22px;
             color: var(--primary-dark);
             margin-bottom: 14px;
         }
@@ -247,7 +278,7 @@
             line-height: 1.7;
         }
 
-        /* --- قسم الإحصائيات الذكي --- */
+        /* --- Stats Section --- */
         .stats {
             background-color: var(--primary-dark);
             color: var(--text-light);
@@ -265,10 +296,9 @@
         }
 
         .stat-item h4 {
-            font-size: 42px;
+            font-size: 46px;
             color: var(--accent-yellow);
             margin-bottom: 10px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .stat-item p {
@@ -276,13 +306,12 @@
             font-size: 16px;
         }
 
-        /* --- فوتر الموقع --- */
+        /* --- Footer --- */
         footer {
             background: #02131b;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
             font-size: 14px;
         }
 
@@ -290,16 +319,13 @@
             color: var(--text-light);
         }
 
-        /* --- التوافق مع الهواتف (Responsive) --- */
+        /* --- Responsive Style --- */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* يمكن تطوير القائمة الجانبية لاحقاً */
+                display: none; 
             }
             .hero h1 {
                 font-size: 32px;
-            }
-            .hero p {
-                font-size: 16px;
             }
             .stats-container {
                 flex-direction: column;
@@ -309,88 +335,168 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
+    <!-- Header Navigation -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">OPENHOUER<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#features">المميزات</a></li>
-                <li><a href="#services">الأنظمة</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#contact" class="cta-btn">ابدأ الآن</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#features" data-i18n="nav-features">Features</a></li>
+                    <li><a href="#features" data-i18n="nav-systems">Systems</a></li>
+                    <li><a href="#about" data-i18n="nav-about">About</a></li>
+                </ul>
+                <button class="lang-btn" id="langToggle">العربية</button>
+                <a href="#contact" class="cta-btn" data-i18n="nav-cta">Get Started</a>
+            </div>
         </div>
     </header>
 
-    <!-- قسم الهيرو الرئيسي -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <span class="badge">مستقبل الأنظمة المدمجة والموديلر السحابي</span>
-            <h1>نبتكر حلولاً برمجية ذكية تدير أعمالك بكفاءة</h1>
-            <p>في OPENHOUER Systems، نقوم ببناء البنى التحتية الرقمية والأنظمة المترابطة التي تمنح مشروعك المرونة الكاملة والنمو اللامحدود.</p>
-            <a href="#features" class="cta-btn" style="text-decoration: none; display: inline-block;">اكتشف أنظمتنا</a>
+            <span class="badge" data-i18n="hero-badge">Next-Gen Modular Cloud Systems</span>
+            <h1 data-i18n="hero-title">We engineer intelligent software infrastructure for global scale</h1>
+            <p data-i18n="hero-desc">At OPENHOUER Systems, we build hyper-connected ecosystems that give your business complete autonomy, unmatched velocity, and unlimited growth.</p>
+            <a href="#features" class="cta-btn" data-i18n="hero-cta">Explore Infrastructure</a>
         </div>
     </section>
 
-    <!-- قسم المميزات والخدمات -->
+    <!-- Services / Grid Section (Linkio Style) -->
     <section class="services" id="features">
         <div class="section-title">
-            <h2>منظومة تقنية متكاملة</h2>
-            <p>حلول مصممة خصيصاً لتواكب تطلعات الشركات الذكية</p>
+            <h2 data-i18n="sec-title">Unified Tech Ecosystem</h2>
+            <p data-i18n="sec-subtitle">Tailored architectural solutions designed for high-performance operations</p>
         </div>
         
         <div class="grid-container">
-            <!-- كرت 1 -->
+            <!-- Card 1 -->
             <div class="card">
                 <div class="card-icon">⚙️</div>
-                <h3>Modular Hub</h3>
-                <p>نظام هيكلي مرن يتيح لك تركيب وتخصيص الأدوات والبرمجيات حسب حاجة شركتك الحالية والمستقبلية دون تعقيد.</p>
+                <h3 data-i18n="card1-title">Modular Hub</h3>
+                <p data-i18n="card1-desc">An adaptive structural matrix allowing instant customization and tool integration based on your real-time scale requirements.</p>
             </div>
             
-            <!-- كرت 2 -->
+            <!-- Card 2 -->
             <div class="card">
                 <div class="card-icon">⚡</div>
-                <h3>Electrors System</h3>
-                <p>معالجة سريعة وفورية للبيانات والعمليات الضخمة تضمن استقرار عملياتك وأمانها الحركي على مدار الساعة.</p>
+                <h3 data-i18n="card2-title">Electrors System</h3>
+                <p data-i18n="card2-desc">High-frequency background computation and stream processing engine to secure absolute operational uptime and data structural integrity.</p>
             </div>
             
-            <!-- كرت 3 -->
+            <!-- Card 3 -->
             <div class="card">
                 <div class="card-icon">🌐</div>
-                <h3>Sencor Noda</h3>
-                <p>ربط سحابي متطور وشامل يربط فروعك وأجهزتك الذكية في شبكة موحدة آمنة وسهلة الإدارة من أي مكان.</p>
+                <h3 data-i18n="card3-title">Sencor Noda</h3>
+                <p data-i18n="card3-desc">Advanced cloud linking framework that harmonizes globally decentralized endpoints into a singular, highly encrypted governance node.</p>
             </div>
         </div>
     </section>
 
-    <!-- قسم الإحصائيات -->
+    <!-- Stats Section -->
     <section class="stats" id="about">
         <div class="stats-container">
             <div class="stat-item">
                 <h4 class="counter" data-target="99">0</h4>
-                <p>استقرار الأنظمة %</p>
+                <p data-i18n="stat-1">System Uptime %</p>
             </div>
             <div class="stat-item">
                 <h4 class="counter" data-target="24">0</h4>
-                <p>دعم فني متواصل 7/24</p>
+                <p data-i18n="stat-2">Continuous Support 24/7</p>
             </div>
             <div class="stat-item">
                 <h4 class="counter" data-target="150">0</h4>
-                <p>مشروع رقمي متكامل +</p>
+                <p data-i18n="stat-3">Deployed Environments +</p>
             </div>
         </div>
     </section>
 
-    <!-- الفوتر -->
+    <!-- Footer -->
     <footer>
-        <p>جميع الحقوق محفوظة © 2026 <strong>OPENHOUER Systems</strong>. صنع بشغف لتطوير الأعمال.</p>
+        <p><span data-i18n="footer-text">All Rights Reserved © 2026</span> <strong>OPENHOUER Systems</strong>.</p>
     </footer>
 
-    <!-- الجافا سكريبت للتفاعل والعدادات -->
+    <!-- Translation and Layout Engine script -->
     <script>
-        // تأثير عداد الأرقام التفاعلي عند التمرير (Counter Animation)
+        // 1. Dictionary Mapping for EN and AR
+        const translations = {
+            en: {
+                "nav-features": "Features",
+                "nav-systems": "Systems",
+                "nav-about": "About",
+                "nav-cta": "Get Started",
+                "hero-badge": "Next-Gen Modular Cloud Systems",
+                "hero-title": "We engineer intelligent software infrastructure for global scale",
+                "hero-desc": "At OPENHOUER Systems, we build hyper-connected ecosystems that give your business complete autonomy, unmatched velocity, and unlimited growth.",
+                "hero-cta": "Explore Infrastructure",
+                "sec-title": "Unified Tech Ecosystem",
+                "sec-subtitle": "Tailored architectural solutions designed for high-performance operations",
+                "card1-title": "Modular Hub",
+                "card1-desc": "An adaptive structural matrix allowing instant customization and tool integration based on your real-time scale requirements.",
+                "card2-title": "Electrors System",
+                "card2-desc": "High-frequency background computation and stream processing engine to secure absolute operational uptime and data structural integrity.",
+                "card3-title": "Sencor Noda",
+                "card3-desc": "Advanced cloud linking framework that harmonizes globally decentralized endpoints into a singular, highly encrypted governance node.",
+                "stat-1": "System Uptime %",
+                "stat-2": "Continuous Support 24/7",
+                "stat-3": "Deployed Environments +",
+                "footer-text": "All Rights Reserved © 2026"
+            },
+            ar: {
+                "nav-features": "المميزات",
+                "nav-systems": "الأنظمة",
+                "nav-about": "من نحن",
+                "nav-cta": "ابدأ الآن",
+                "hero-badge": "مستقبل الأنظمة المدمجة والموديلر السحابي",
+                "hero-title": "نبتكر حلولاً برمجية ذكية تدير أعمالك بكفاءة عالمية",
+                "hero-desc": "في OPENHOUER Systems، نقوم ببناء البنى التحتية الرقمية والأنظمة المترابطة التي تمنح مشروعك المرونة الكاملة والنمو اللامحدود.",
+                "hero-cta": "اكتشف أنظمتنا",
+                "sec-title": "منظومة تقنية متكاملة",
+                "sec-subtitle": "حلول مصممة خصيصاً لتواكب تطلعات الشركات الرقمية الحديثة",
+                "card1-title": "Modular Hub",
+                "card1-desc": "نظام هيكلي مرن يتيح لك تركيب وتخصيص الأدوات والبرمجيات حسب حاجة شركتك الحالية والمستقبلية دون تعقيد.",
+                "card2-title": "Electrors System",
+                "card2-desc": "معالجة سريعة وفورية للبيانات والعمليات الضخمة تضمن استقرار عملياتك وأمانها الحركي على مدار الساعة.",
+                "card3-title": "Sencor Noda",
+                "card3-desc": "ربط سحابي متطور وشامل يربط فروعك وأجهزتك الذكية في شبكة موحدة آمنة وسهلة الإدارة من أي مكان.",
+                "stat-1": "استقرار الأنظمة %",
+                "stat-2": "دعم فني متواصل 7/24",
+                "stat-3": "بيئة رقمية نشطة +",
+                "footer-text": "جميع الحقوق محفوظة © 2026"
+            }
+        };
+
+        // 2. Initialize Language Switch Logic
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = 'en'; // Default Language Set To English As Requested
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const isAr = lang === 'ar';
+            
+            // Toggle Document Direction and Language Attributes
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+            
+            // Modify Toggle Button Text label
+            langToggleBtn.innerText = isAr ? 'English' : 'العربية';
+            
+            // Loop through and re-translate elements containing data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const translationKey = element.getAttribute('data-i18n');
+                if (translations[lang][translationKey]) {
+                    element.innerText = translations[lang][translationKey];
+                }
+            });
+        }
+
+        // Trigger switch event on button click
+        langToggleBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'en' ? 'ar' : 'en');
+        });
+
+        // 3. Counter Interactive Script (Linkio Style)
         const counters = document.querySelectorAll('.counter');
-        const speed = 50; 
+        const speed = 60; 
 
         const startCounters = () => {
             counters.forEach(counter => {
@@ -401,7 +507,7 @@
 
                     if (count < target) {
                         counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
+                        setTimeout(updateCount, 15);
                     } else {
                         counter.innerText = target;
                     }
@@ -410,7 +516,6 @@
             });
         };
 
-        // تفعيل الإنميشن بمجرد وصول المستخدم لقسم الإحصائيات
         let triggered = false;
         window.addEventListener('scroll', () => {
             const statsSection = document.getElementById('about');
