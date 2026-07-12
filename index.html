@@ -1,377 +1,426 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="html-tag">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NextGen Group | Shaping the Digital Future</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Cairo) -->
+    <title>OPENHOUER SYSTEMS | الأنظمة البرمجية الذكية</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* --- المتغيرات والألوان الأساسية للهوية البصرية --- */
         :root {
-            --bg-color: #0d131a;
-            --card-bg: #141d26;
-            --accent-gold: #f2a900;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --grid-color: rgba(0, 242, 254, 0.03);
+            --primary-dark: #031c27;      /* الأزرق الداكن من اللوجو */
+            --primary-cream: #f6f5f0;     /* الخلفية الكريمية الفاتحة */
+            --accent-yellow: #f5b335;     /* النقطة الصفراء المميزة */
+            --text-dark: #1a2b32;
+            --text-light: #ffffff;
+            --card-bg: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* --- الإعدادات العامة --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px 20px 20px;
+            background-color: var(--primary-cream);
+            color: var(--text-dark);
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Digital Network Overlay (Inspired by image_0.png) */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 20px 20px;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Language Switcher */
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
-
-        /* Adjust position when dir is RTL */
-        html[dir="rtl"] .lang-switcher {
-            right: auto;
-            left: 20px;
-        }
-
-        .lang-switcher:hover {
-            background: var(--accent-gold);
-            color: #0d131a;
-            border-color: var(--accent-gold);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background: linear-gradient(145deg, #141d26, #0f172a);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 30px 24px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Brand Headers */
-        .brand-section {
-            margin-bottom: 25px;
-        }
-
-        .logo-img {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .description {
-            font-size: 0.95rem;
-            color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 20px;
         }
 
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(242, 169, 0, 0.3), transparent);
-            margin: 25px 0;
+        /* --- الهيدر والقائمة --- */
+        header {
+            background-color: rgba(3, 28, 39, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .academy-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
-        /* Links Buttons Container */
-        .links-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .link-card {
-            display: flex;
-            align-items: center;
-            padding: 14px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            color: var(--text-main);
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-yellow);
+            margin-right: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-yellow);
+            color: var(--primary-dark) !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(245, 179, 53, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 179, 53, 0.5);
+        }
+
+        /* --- قسم الهيرو الرئيسي (Hero Section) --- */
+        .hero {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 180px 20px 100px 20px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .link-card:hover {
-            background: rgba(242, 169, 0, 0.1);
-            border-color: var(--accent-gold);
-            transform: translateY(-2px);
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--primary-cream);
+            transform: skewY(-2deg);
         }
 
-        .link-card i {
-            font-size: 1.3rem;
-            width: 30px;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 24px;
+            color: var(--accent-yellow);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- قسم الخدمات والمميزات (Linkio Style Grid) --- */
+        .services {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
             text-align: center;
-            color: var(--accent-gold);
+            margin-bottom: 60px;
         }
 
-        .link-text {
-            flex-grow: 1;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-        
-        /* Text Alignment Based on Direction */
-        html[dir="ltr"] .link-text { text-align: left; margin-left: 15px; }
-        html[dir="rtl"] .link-text { text-align: right; margin-right: 15px; }
-
-        .link-card .arrow-icon {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            transition: transform 0.3s ease;
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
         }
 
-        html[dir="ltr"] .link-card:hover .arrow-icon { transform: translateX(5px); color: var(--accent-gold); }
-        html[dir="rtl"] .link-card:hover .arrow-icon { transform: translateX(-5px); color: var(--accent-gold); }
-        
-        /* Rotate chevron icon for LTR */
-        html[dir="ltr"] .link-card .arrow-icon { transform: rotate(180deg); }
-        html[dir="ltr"] .link-card:hover .arrow-icon { transform: rotate(180deg) translateX(-5px); }
+        .section-title p {
+            color: #666;
+            font-size: 16px;
+        }
 
-        /* QR Footer Integration (Inspired by image_0.png white block) */
-        .qr-footer {
-            margin-top: 30px;
-            background: #ffffff;
-            color: #0d131a;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px 30px;
             border-radius: 16px;
-            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-dark);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(3, 28, 39, 0.08);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(3, 28, 39, 0.05);
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
         }
 
-        html[dir="ltr"] .qr-text { text-align: left; }
-        html[dir="rtl"] .qr-text { text-align: right; }
-
-        .qr-text h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #0d131a;
+        .card h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
         }
 
-        .qr-text p {
-            font-size: 0.8rem;
+        .card p {
             color: #555;
+            font-size: 15px;
+            line-height: 1.7;
         }
 
-        .qr-code img {
-            width: 65px;
-            height: 65px;
-            display: block;
+        /* --- قسم الإحصائيات الذكي --- */
+        .stats {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
         }
 
-        /* Page Credits */
-        .footer-credits {
-            margin-top: 20px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
         }
 
-        /* Language Switching Display Logic */
-        html[lang="en"] .ar-txt { display: none !important; }
-        html[lang="ar"] .en-txt { display: none !important; }
+        .stat-item h4 {
+            font-size: 42px;
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        /* --- فوتر الموقع --- */
+        footer {
+            background: #02131b;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: var(--text-light);
+        }
+
+        /* --- التوافق مع الهواتف (Responsive) --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* يمكن تطوير القائمة الجانبية لاحقاً */
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .stats-container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Language Toggle Button -->
-    <button class="lang-switcher" onclick="toggleLanguage()">
-        <i class="fa-solid fa-language"></i>
-        <span class="en-txt">العربية</span>
-        <span class="ar-txt">English</span>
-    </button>
+    <!-- الهيدر -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">OPENHOUER<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#services">الأنظمة</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#contact" class="cta-btn">ابدأ الآن</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <div class="container">
+    <!-- قسم الهيرو الرئيسي -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">مستقبل الأنظمة المدمجة والموديلر السحابي</span>
+            <h1>نبتكر حلولاً برمجية ذكية تدير أعمالك بكفاءة</h1>
+            <p>في OPENHOUER Systems، نقوم ببناء البنى التحتية الرقمية والأنظمة المترابطة التي تمنح مشروعك المرونة الكاملة والنمو اللامحدود.</p>
+            <a href="#features" class="cta-btn" style="text-decoration: none; display: inline-block;">اكتشف أنظمتنا</a>
+        </div>
+    </section>
+
+    <!-- قسم المميزات والخدمات -->
+    <section class="services" id="features">
+        <div class="section-title">
+            <h2>منظومة تقنية متكاملة</h2>
+            <p>حلول مصممة خصيصاً لتواكب تطلعات الشركات الذكية</p>
+        </div>
         
-        <!-- NextGen Group Section -->
-        <div class="brand-section">
-            <!-- Correct High-Contrast Dark Logo for Group as per guidelines -->
-            <img src="nobggr.png" alt="NextGen Group Logo" class="logo-img" onerror="this.src='https://placehold.co/180x50/141d26/ffffff?text=NextGen+Group'">
-            <div class="tagline">Beyond Code. Beyond Connectivity.</div>
-            <p class="description">
-                <span class="en-txt">The trusted technology partner for building advanced digital infrastructures and secure, intelligent enterprise software.</span>
-                <span class="ar-txt">الشريك التقني الموثوق لبناء البنى التحتية الرقمية المتقدمة والبرمجيات المؤسسية الذكية والآمنة.</span>
-            </p>
-        </div>
-
-        <!-- NextGen Group Links -->
-        <div class="links-wrapper">
-            <a href="message.html" target="_blank" class="link-card">
-                <i class="fa-solid fa-globe"></i>
-                <span class="link-text">
-                    <span class="en-txt">Official Website</span>
-                    <span class="ar-txt">الموقع الإلكتروني الرسمي</span>
-                </span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
-
-            <a href="message.html" target="_blank" class="link-card">
-                <i class="fa-brands fa-linkedin"></i>
-                <span class="link-text">
-                    <span class="en-txt">LinkedIn Profile</span>
-                    <span class="ar-txt">لينكد إن | LinkedIn</span>
-                </span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
-
-            <a href="mailto:info@nextgen-group.com" class="link-card">
-                <i class="fa-solid fa-envelope"></i>
-                <span class="link-text">
-                    <span class="en-txt">Contact via Email</span>
-                    <span class="ar-txt">التواصل عبر البريد الإلكتروني</span>
-                </span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <!-- NextGen Academy Section -->
-        <div class="brand-section">
-            <div class="academy-title">
-                <i class="fa-solid fa-graduation-cap"></i> 
-                <span class="en-txt">Training & Development Sector</span>
-                <span class="ar-txt">قطاع التدريب والتطوير</span>
+        <div class="grid-container">
+            <!-- كرت 1 -->
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Modular Hub</h3>
+                <p>نظام هيكلي مرن يتيح لك تركيب وتخصيص الأدوات والبرمجيات حسب حاجة شركتك الحالية والمستقبلية دون تعقيد.</p>
             </div>
-            <!-- Correct High-Contrast Dark Logo for Academy as per guidelines -->
-            <img src="nobgac.png" alt="NextGen Academy Logo" class="logo-img" style="max-width: 150px;" onerror="this.src='https://placehold.co/150x40/141d26/ffffff?text=NextGen+Academy'">
-            <p class="description">
-                <span class="en-txt">Empowering the next generation of developers and engineers with cutting-edge skills and professional credentials.</span>
-                <span class="ar-txt">تمكين الجيل القادم من المطورين والمهندسين بأحدث المهارات والشهادات الاحترافية.</span>
-            </p>
-        </div>
-
-        <!-- NextGen Academy Links -->
-        <div class="links-wrapper">
-            <a href="message.html" target="_blank" class="link-card">
-                <i class="fa-solid fa-laptop-code"></i>
-                <span class="link-text">
-                    <span class="en-txt">Training Platform & Courses</span>
-                    <span class="ar-txt">منصة التدريب والدورات</span>
-                </span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
-
-            <a href="message.html" target="_blank" class="link-card">
-                <i class="fa-brands fa-instagram"></i>
-                <span class="link-text">
-                    <span class="en-txt">Academy Instagram</span>
-                    <span class="ar-txt">انستغرام الأكاديمية</span>
-                </span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
-        </div>
-
-        <!-- Connected QR Section (Integrated Professionally) -->
-        <div class="qr-footer">
-            <div class="qr-text">
-                <h4>
-                    <span class="en-txt">Connect With Us!</span>
-                    <span class="ar-txt">تواصل معنا!</span>
-                </h4>
-                <p>
-                    <span class="en-txt">Scan the code to discover our solutions</span>
-                    <span class="ar-txt">امسح الكود لاستكشاف حلولنا الرقمية</span>
-                </p>
+            
+            <!-- كرت 2 -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Electrors System</h3>
+                <p>معالجة سريعة وفورية للبيانات والعمليات الضخمة تضمن استقرار عملياتك وأمانها الحركي على مدار الساعة.</p>
             </div>
-            <div class="qr-code">
-                <img src="message.html" alt="QR Code">
+            
+            <!-- كرت 3 -->
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>Sencor Noda</h3>
+                <p>ربط سحابي متطور وشامل يربط فروعك وأجهزتك الذكية في شبكة موحدة آمنة وسهلة الإدارة من أي مكان.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <div class="footer-credits">
-            <span class="en-txt">&copy; 2026 NextGen Group. All rights reserved.</span>
-            <span class="ar-txt">&copy; 2026 NextGen Group. جميع الحقوق محفوظة.</span>
+    <!-- قسم الإحصائيات -->
+    <section class="stats" id="about">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h4 class="counter" data-target="99">0</h4>
+                <p>استقرار الأنظمة %</p>
+            </div>
+            <div class="stat-item">
+                <h4 class="counter" data-target="24">0</h4>
+                <p>دعم فني متواصل 7/24</p>
+            </div>
+            <div class="stat-item">
+                <h4 class="counter" data-target="150">0</h4>
+                <p>مشروع رقمي متكامل +</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 <strong>OPENHOUER Systems</strong>. صنع بشغف لتطوير الأعمال.</p>
+    </footer>
 
-    <!-- Smart Language & Layout Real-time Switcher -->
+    <!-- الجافا سكريبت للتفاعل والعدادات -->
     <script>
-        function toggleLanguage() {
-            const html = document.getElementById('html-tag');
-            if (html.getAttribute('lang') === 'en') {
-                // Switch to Arabic
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-            } else {
-                // Return to English (Default)
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
+        // تأثير عداد الأرقام التفاعلي عند التمرير (Counter Animation)
+        const counters = document.querySelectorAll('.counter');
+        const speed = 50; 
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // تفعيل الإنميشن بمجرد وصول المستخدم لقسم الإحصائيات
+        let triggered = false;
+        window.addEventListener('scroll', () => {
+            const statsSection = document.getElementById('about');
+            const position = statsSection.getBoundingClientRect();
+
+            if(position.top < window.innerHeight && !triggered) {
+                startCounters();
+                triggered = true;
             }
-        }
+        });
     </script>
 </body>
 </html>
