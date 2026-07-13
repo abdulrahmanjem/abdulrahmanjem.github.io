@@ -3,68 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Report: The Architecture of Velocity | OPENHOUER SYSTEMS</title>
+    <title>OPENHOUER SYSTEMS | Our Corporate Story & Profile</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Core Editorial Design Tokens --- */
+        /* --- Brand Identity Core System --- */
         :root {
             --primary-dark: #031c27;      
             --primary-cream: #f6f5f0;     
             --accent-yellow: #f5b335;     
-            --text-dark: #111e24;
-            --text-muted: #52636c;
+            --text-dark: #1a2b32;
+            --text-light: #ffffff;
             --card-bg: #ffffff;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            --font-editorial: 'Playfair Display', serif;
-            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         html[lang="ar"] {
-            --font-editorial: 'Cairo', sans-serif;
-            --font-sans: 'Cairo', sans-serif;
+            --font-family: 'Cairo', sans-serif;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--font-sans);
+            font-family: var(--font-family);
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--primary-cream);
             color: var(--text-dark);
-            line-height: 1.7;
             overflow-x: hidden;
+            line-height: 1.7;
         }
 
-        /* --- Global Sticky Navigation --- */
+        /* --- Luxury Minimal Navbar --- */
         header {
-            background-color: rgba(3, 28, 39, 0.98);
+            background-color: rgba(3, 28, 39, 0.96);
+            backdrop-filter: blur(15px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px 24px;
+            padding: 20px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-light);
             text-decoration: none;
             letter-spacing: 0.5px;
         }
@@ -73,11 +73,35 @@
             color: var(--accent-yellow);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
         .lang-btn {
-            background: rgba(255, 255, 255, 0.08);
+            background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            padding: 8px 16px;
+            color: var(--text-light);
+            padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -86,396 +110,394 @@
         }
 
         .lang-btn:hover {
-            background: var(--accent-yellow);
-            color: var(--primary-dark);
             border-color: var(--accent-yellow);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        /* --- Press/Conference Hero Header --- */
-        .press-hero {
-            padding: 160px 24px 80px 24px;
-            max-width: 1100px;
-            margin: 0 auto;
+        /* --- Premium Hero Profile --- */
+        .hero-profile {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 180px 24px 140px 24px;
             text-align: center;
-            border-bottom: 2px solid var(--primary-dark);
+            position: relative;
         }
 
-        .meta-tagline {
-            font-family: var(--font-sans);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: var(--accent-yellow);
-            background: var(--primary-dark);
-            display: inline-block;
-            padding: 4px 12px;
-            margin-bottom: 24px;
-        }
-
-        .press-hero h1 {
-            font-family: var(--font-editorial);
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--primary-dark);
+        .hero-profile-content {
             max-width: 900px;
-            margin: 0 auto 24px auto;
+            margin: 0 auto;
         }
 
-        html[lang="ar"] .press-hero h1 {
-            font-weight: 800;
-            line-height: 1.4;
-        }
-
-        .press-meta-bar {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 14px;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-top: 16px;
-        }
-
-        /* --- Main Editorial Layout --- */
-        .editorial-container {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 24px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-        }
-
-        /* Narrative Story Block */
-        .story-column {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(3, 28, 39, 0.02);
-        }
-
-        .story-column p {
-            font-size: 17px;
-            color: var(--text-dark);
+        .badge-luxury {
+            border: 1px solid var(--accent-yellow);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            display: inline-block;
             margin-bottom: 24px;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .hero-profile h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-profile p.lead-text {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-weight: 400;
+        }
+
+        /* --- Editorial Story Section (From Idea to Startup) --- */
+        .story-section {
+            max-width: 1100px;
+            margin: -60px auto 80px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .story-card-main {
+            background: var(--card-bg);
+            padding: 60px;
+            border-radius: 24px;
+            box-shadow: 0 30px 70px rgba(3, 28, 39, 0.06);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .story-block {
+            margin-bottom: 48px;
+        }
+
+        .story-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-block h3 {
+            font-size: 24px;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .story-block p {
+            color: #4a5960;
+            font-size: 16px;
+            line-height: 1.8;
             text-align: justify;
         }
 
-        .editorial-quote {
-            font-family: var(--font-editorial);
-            font-style: italic;
-            font-size: 22px;
-            color: var(--primary-dark);
-            border-left: 4px solid var(--accent-yellow);
-            padding-left: 20px;
-            margin: 35px 0;
-            font-weight: 500;
+        /* --- Founder Spotlight Area --- */
+        .founder-spotlight {
+            background: linear-gradient(180px, var(--primary-cream) 0%, #edece6 100%);
+            padding: 80px 24px;
+            border-radius: 20px;
+            margin-top: 40px;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
-        html[lang="ar"] .editorial-quote {
-            font-style: normal;
-            border-left: none;
-            border-right: 4px solid var(--accent-yellow);
-            padding-left: 0;
-            padding-right: 20px;
-        }
-
-        .section-subheading {
-            font-family: var(--font-editorial);
-            font-size: 26px;
-            color: var(--primary-dark);
-            margin: 40px 0 16px 0;
-            font-weight: 700;
-        }
-
-        /* --- Corporate Blueprint / Profile Sidebar --- */
-        .profile-sidebar {
+        .founder-wrapper {
             display: flex;
-            flex-direction: column;
-            gap: 30px;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
         }
 
-        .sidebar-card {
+        html[dir="rtl"] .founder-wrapper {
+            text-align: right;
+        }
+
+        .founder-avatar-box {
+            flex-shrink: 0;
+            width: 110px;
+            height: 110px;
             background: var(--primary-dark);
-            color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .sidebar-card.light {
-            background: #ffffff;
-            color: var(--text-dark);
-            border: 1px solid rgba(3, 28, 39, 0.08);
-        }
-
-        .sidebar-card h3 {
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
             color: var(--accent-yellow);
-        }
-
-        .sidebar-card.light h3 {
-            color: var(--primary-dark);
-            border-bottom: 1px solid rgba(3, 28, 39, 0.1);
-        }
-
-        /* Simulated Press Asset / Founder Portrait Placeholder */
-        .founder-photo-container {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #052c3d 0%, #02131b 100%);
-            border-radius: 8px;
-            margin-bottom: 16px;
+            border-radius: 24px;
+            font-size: 36px;
+            font-weight: 800;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(3, 28, 39, 0.1);
         }
 
-        .founder-photo-container::before {
-            content: 'PRESS ASSET #04';
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            font-size: 10px;
-            letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .founder-photo-container svg {
-            width: 60px;
-            height: 60px;
-            fill: var(--accent-yellow);
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
-        .founder-caption {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.6);
-            text-align: center;
-            font-style: italic;
-        }
-
-        /* Profile Data List */
-        .profile-kv {
-            margin-bottom: 14px;
-            font-size: 14px;
-        }
-
-        .profile-kv span {
-            display: block;
-            font-weight: 700;
-            color: var(--accent-yellow);
-        }
-
-        .sidebar-card.light .profile-kv span {
+        .founder-details h4 {
+            font-size: 22px;
             color: var(--primary-dark);
+            margin-bottom: 4px;
+            font-weight: 700;
         }
 
-        /* Social Networks Grid */
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .founder-details .title {
+            font-size: 14px;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
         }
 
-        .social-item {
+        .founder-details p {
+            color: #55646c;
+            font-size: 15px;
+        }
+
+        /* --- Social & Ecosystem Links Matrix --- */
+        .ecosystem-section {
+            max-width: 1100px;
+            margin: 0 auto 100px auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .ecosystem-section h2 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .social-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .matrix-item {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--primary-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 12px;
-            background: var(--primary-cream);
-            border-radius: 6px;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.02);
             transition: var(--transition);
         }
 
-        .social-item:hover {
+        .matrix-item .icon {
+            font-size: 24px;
+            width: 46px;
+            height: 46px;
+            background: var(--primary-cream);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .matrix-item:hover {
             background: var(--primary-dark);
-            color: #ffffff;
+            color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(3, 28, 39, 0.08);
+        }
+
+        .matrix-item:hover .icon {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .matrix-item.primary-site {
+            background: var(--accent-yellow);
+        }
+        .matrix-item.primary-site:hover {
+            background: var(--primary-dark);
         }
 
         /* --- Footer --- */
         footer {
             background: #02131b;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.5);
             padding: 40px 24px;
             text-align: center;
-            font-size: 13px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 60px;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* --- Responsive Adaptability --- */
-        @media (max-width: 900px) {
-            .editorial-container {
-                grid-template-columns: 1fr;
-            }
-            .press-hero h1 {
-                font-size: 34px;
-            }
+        footer strong {
+            color: var(--text-light);
+        }
+
+        /* --- Responsive Viewports --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-profile h1 { font-size: 36px; }
+            .hero-profile p.lead-text { font-size: 16px; }
+            .story-card-main { padding: 30px 20px; }
+            .founder-wrapper { flex-direction: column; text-align: center !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Luxury Navigation Bar -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">OPENHOUER<span>.</span></a>
-            <button class="lang-btn" id="langToggle">العربية</button>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#story" data-i18n="nav-story">Our Story</a></li>
+                    <li><a href="#founder" data-i18n="nav-founder">The Founder</a></li>
+                    <li><a href="#ecosystem" data-i18n="nav-ecosystem">Connect</a></li>
+                </ul>
+                <button class="lang-btn" id="langToggle">العربية</button>
+            </div>
         </div>
     </header>
 
-    <!-- Editorial Header Section -->
-    <section class="press-hero">
-        <span class="meta-tagline" data-i18n="hero-tag">Special Keynote Briefing</span>
-        <h1 data-i18n="hero-title">The Architecture of Velocity: How OPENHOUER Systems Redefined Modern Enterprise Infrastructure</h1>
-        <div class="press-meta-bar">
-            <span><strong>Location:</strong> Zurich Tech Summit</span>
-            <span>•</span>
-            <span data-i18n="hero-date">Published: July 2026</span>
+    <!-- Master Hero Profile Area -->
+    <section class="hero-profile">
+        <div class="hero-profile-content">
+            <span class="badge-luxury" data-i18n="hero-badge">Corporate Profile</span>
+            <h1 data-i18n="hero-title">Architecting the Backbone of Tomorrow's Digital Autonomy</h1>
+            <p class="lead-text" data-i18n="hero-desc">The structural journey of OPENHOUER Systems — from a bold foundational abstract concept to an industry-standard technological startup enterprise.</p>
         </div>
     </section>
 
-    <!-- Main Content Body -->
-    <main class="editorial-container">
-        
-        <!-- Story Column -->
-        <article class="story-column">
-            <p data-i18n="p1">In an era where digital ecosystems demand absolute uptime and elastic scaling, traditional monolithic platforms have hit an architectural wall. The narrative changed when OPENHOUER Systems debuted its high-frequency distributed nodes, radically altering how modern organizations handle stream computation and decentralized sync patterns.</p>
-            
-            <div class="editorial-quote" data-i18n="quote">
-                "We didn't set out to optimize existing servers; we built an immutable infrastructure that allows networks to think, adapt, and scale autonomously."
-            </div>
-
-            <h2 class="section-subheading" data-i18n="h2-1">The Genesis & Success Story</h2>
-            <p data-i18n="p2">Founded on the principle of extreme modularity, OPENHOUER Systems evolved rapidly from an experimental cloud framework into an industry baseline for global enterprises. By decoupling state management from compute layers, the company’s flagship systems achieved what many considered impossible: sub-millisecond data synchronization across globally distributed ledger nodes without performance degradation.</p>
-            
-            <p data-i18n="p3">Today, the company operates as a silent backbone for high-availability environments, managing interconnected cloud architectures that serve millions of concurrent pipelines daily. The trajectory of OPENHOUER is a testament to the power of uncompromising engineering discipline over speculative software design trends.</p>
-
-            <h2 class="section-subheading" data-i18n="h2-2">The Visionary Drive</h2>
-            <p data-i18n="p4">Behind this systemic shift is a relentless focus on fundamental computer science principles. At the recent summit keynotes, the discourse centered heavily on predictive architecture—enabling software networks to anticipate structural bottlenecks and self-heal before latency fluctuations ripple down to end-user applications.</p>
-        </article>
-
-        <!-- Sidebar Profile -->
-        <aside class="profile-sidebar">
-            
-            <!-- Founder Profile Block (With Simulated Photo Asset) -->
-            <div class="sidebar-card">
-                <h3 data-i18n="side1-title">The Architect</h3>
+    <!-- Editorial Structural Story Section -->
+    <section class="story-section" id="story">
+        <div class="story-grid">
+            <div class="story-card-main">
                 
-                <!-- Graphic Vector Silhouette simulating Founder Portrait Graphic -->
-                <div class="founder-photo-container">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-                    </svg>
-                    <div class="founder-caption">OPENHOUER Founder & Chief Architect</div>
+                <!-- Chapter 1 -->
+                <div class="story-block">
+                    <h3><span>01.</span> <span data-i18n="ch1-title">The Initial Spark (The Idea)</span></h3>
+                    <p data-i18n="ch1-desc">Every great infrastructure begins with a point of friction. In early stages, the foundational idea behind OPENHOUER Systems was born out of a critical global tech challenge: the rigid complexity of corporate cloud systems and lack of fluid architecture. The goal was simple yet highly disruptive—to conceptualize a fully modular ecosystem where complex networks, data nodes, and software tools could connect seamlessly, behaving with the natural flexibility of modern modular building blocks.</p>
                 </div>
 
-                <div class="profile-kv">
-                    <span data-i18n="f-name-lbl">Executive Leadership</span>
-                    <p data-i18n="f-name">Alexander V. Houer</p>
+                <!-- Chapter 2 -->
+                <div class="story-block">
+                    <h3><span>02.</span> <span data-i18n="ch2-title">The Engineering & Evolution</span></h3>
+                    <p data-i18n="ch2-desc">Transforming a high-level abstract theory into functional infrastructure required rigorous engineering phases. Weeks turned into months of intense optimization, formulating data routing algorithms and refining underlying software matrices. Through tireless iterations, the core components began to take shape: Modular Hub for custom scaling, Electrors System for secure data stream processing, and Sencor Noda for advanced cloud cryptographic linking. The concept matured into a robust, living framework ready to change how companies manage web infrastructure.</p>
                 </div>
-                <div class="profile-kv">
-                    <span data-i18n="f-bio-lbl">Strategic Directive</span>
-                    <p data-i18n="f-bio">Specializes in distributed state machine replication, low-latency consensus loops, and robust fault-tolerant cloud systems architecture.</p>
+
+                <!-- Chapter 3 -->
+                <div class="story-block">
+                    <h3><span>03.</span> <span data-i18n="ch3-title">The Startup Enterprise</span></h3>
+                    <p data-i18n="ch3-desc">Today, OPENHOUER Systems stands proud as a fully scaled startup company built on structural excellence and performance. We no longer just engineer software; we build the future environments where fast-growing enterprises operate without limitations. By harmonizing cloud resources and operational tools into a single elegant node, we give modern corporations true technical autonomy and the power to scale dynamically across global horizons.</p>
                 </div>
+
+                <!-- Founder Profile Sub-Block -->
+                <div class="founder-spotlight" id="founder">
+                    <div class="founder-wrapper">
+                        <div class="founder-avatar-box">OH</div>
+                        <div class="founder-details">
+                            <h4 data-i18n="f-name">The Visionary Mind</h4>
+                            <div class="title" data-i18n="f-title">Founder & Chief Architect</div>
+                            <p data-i18n="f-desc">Driven by a deep passion for system optimization, elegant code architecture, and scalable infrastructure. The founder established OPENHOUER Systems to bridge the gap between creative abstract product concepts and high-performance, resilient corporate software engineering.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </section>
 
-            <!-- Social Networks Directory Card -->
-            <div class="sidebar-card light">
-                <h3 data-i18n="side2-title">Ecosystem Directory</h3>
-                <div class="social-links">
-                    <a href="https://www.openhouer.com" class="social-item" target="_blank">
-                        <span>🌐</span> <span data-i18n="link-web">Official Platform</span>
-                    </a>
-                    <a href="https://linkedin.com/company/openhouer" class="social-item" target="_blank">
-                        <span>💼</span> LinkedIn Network
-                    </a>
-                    <a href="https://github.com/openhouer" class="social-item" target="_blank">
-                        <span>💻</span> GitHub Code Nodes
-                    </a>
-                    <a href="https://x.com/openhouer" class="social-item" target="_blank">
-                        <span>🐦</span> X Media Stream
-                    </a>
-                </div>
-            </div>
-        </aside>
+    <!-- Unified Corporate Network Matrix -->
+    <section class="ecosystem-section" id="ecosystem">
+        <h2 data-i18n="eco-title">Corporate Ecosystem & Networks</h2>
+        <div class="social-matrix">
+            
+            <a href="https://www.openhouer.com" class="matrix-item primary-site" target="_blank">
+                <div class="icon">🌐</div>
+                <span data-i18n="lnk-web">Official Corporate Website</span>
+            </a>
 
-    </main>
+            <a href="https://linkedin.com/company/openhouer" class="matrix-item" target="_blank">
+                <div class="icon">💼</div>
+                <span>LinkedIn Profile</span>
+            </a>
 
-    <!-- Footer -->
+            <a href="https://github.com/openhouer" class="matrix-item" target="_blank">
+                <div class="icon">💻</div>
+                <span>GitHub Repositories</span>
+            </a>
+
+            <a href="https://x.com/openhouer" class="matrix-item" target="_blank">
+                <div class="icon">🐦</div>
+                <span>X Corporate Stream</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Global Compliance Footer -->
     <footer>
-        <p><span data-i18n="footer">All Rights Reserved © 2026</span> OPENHOUER Systems. Media & Press Kit Operations.</p>
+        <p><span data-i18n="footer-text">All Architectural Rights Reserved © 2026</span> <strong>OPENHOUER Systems</strong>.</p>
     </footer>
 
-    <!-- Hot-Swap Language Configuration Script -->
+    <!-- Hot-Swapping Language Matrix JavaScript -->
     <script>
         const translations = {
             en: {
-                "hero-tag": "Special Keynote Briefing",
-                "hero-title": "The Architecture of Velocity: How OPENHOUER Systems Redefined Modern Enterprise Infrastructure",
-                "hero-date": "Published: July 2026",
-                "p1": "In an era where digital ecosystems demand absolute uptime and elastic scaling, traditional monolithic platforms have hit an architectural wall. The narrative changed when OPENHOUER Systems debuted its high-frequency distributed nodes, radically altering how modern organizations handle stream computation and decentralized sync patterns.",
-                "quote": '"We didn\'t set out to optimize existing servers; we built an immutable infrastructure that allows networks to think, adapt, and scale autonomously."',
-                "h2-1": "The Genesis & Success Story",
-                "p2": "Founded on the principle of extreme modularity, OPENHOUER Systems evolved rapidly from an experimental cloud framework into an industry baseline for global enterprises. By decoupling state management from compute layers, the company’s flagship systems achieved what many considered impossible: sub-millisecond data synchronization across globally distributed ledger nodes without performance degradation.",
-                "p3": "Today, the company operates as a silent backbone for high-availability environments, managing interconnected cloud architectures that serve millions of concurrent pipelines daily. The trajectory of OPENHOUER is a testament to the power of uncompromising engineering discipline over speculative software design trends.",
-                "h2-2": "The Visionary Drive",
-                "p4": "Behind this systemic shift is a relentless focus on fundamental computer science principles. At the recent summit keynotes, the discourse centered heavily on predictive architecture—enabling software networks to anticipate structural bottlenecks and self-heal before latency fluctuations ripple down to end-user applications.",
-                "side1-title": "The Architect",
-                "f-name-lbl": "Executive Leadership",
-                "f-name": "Alexander V. Houer",
-                "f-bio-lbl": "Strategic Directive",
-                "f-bio": "Specializes in distributed state machine replication, low-latency consensus loops, and robust fault-tolerant cloud systems architecture.",
-                "side2-title": "Ecosystem Directory",
-                "link-web": "Official Platform",
-                "footer": "All Rights Reserved © 2026"
+                "nav-story": "Our Story",
+                "nav-founder": "The Founder",
+                "nav-ecosystem": "Connect",
+                "hero-badge": "Corporate Profile",
+                "hero-title": "Architecting the Backbone of Tomorrow's Digital Autonomy",
+                "hero-desc": "The structural journey of OPENHOUER Systems — from a bold foundational abstract concept to an industry-standard technological startup enterprise.",
+                "ch1-title": "The Initial Spark (The Idea)",
+                "ch1-desc": "Every great infrastructure begins with a point of friction. In early stages, the foundational idea behind OPENHOUER Systems was born out of a critical global tech challenge: the rigid complexity of corporate cloud systems and lack of fluid architecture. The goal was simple yet highly disruptive—to conceptualize a fully modular ecosystem where complex networks, data nodes, and software tools could connect seamlessly, behaving with the natural flexibility of modern modular building blocks.",
+                "ch2-title": "The Engineering & Evolution",
+                "ch2-desc": "Transforming a high-level abstract theory into functional infrastructure required rigorous engineering phases. Weeks turned into months of intense optimization, formulating data routing algorithms and refining underlying software matrices. Through tireless iterations, the core components began to take shape: Modular Hub for custom scaling, Electrors System for secure data stream processing, and Sencor Noda for advanced cloud cryptographic linking. The concept matured into a robust, living framework ready to change how companies manage web infrastructure.",
+                "ch3-title": "The Startup Enterprise",
+                "ch3-desc": "Today, OPENHOUER Systems stands proud as a fully scaled startup company built on structural excellence and performance. We no longer just engineer software; we build the future environments where fast-growing enterprises operate without limitations. By harmonizing cloud resources and operational tools into a single elegant node, we give modern corporations true technical autonomy and the power to scale dynamically across global horizons.",
+                "f-name": "The Visionary Mind",
+                "f-title": "Founder & Chief Architect",
+                "f-desc": "Driven by a deep passion for system optimization, elegant code architecture, and scalable infrastructure. The founder established OPENHOUER Systems to bridge the gap between creative abstract product concepts and high-performance, resilient corporate software engineering.",
+                "eco-title": "Corporate Ecosystem & Networks",
+                "lnk-web": "Official Corporate Website",
+                "footer-text": "All Architectural Rights Reserved © 2026"
             },
             ar: {
-                "hero-tag": "تغطية خاصة ومباشرة من المؤتمر",
-                "hero-title": "هندسة السرعة الفائقة: كيف أعادت أوبن هاور (OPENHOUER) تعريف البنية التحتية البرمجية للمؤسسات",
-                "hero-date": "تاريخ النشر: يوليو 2026",
-                "p1": "في عصر تطلب فيه المنظومات الرقمية استقراراً كاملاً ومرونة مطلقة في التوسع، اصطدمت المنصات التقليدية بجدار برمي عتيق. لقد تغيرت القصة بالكامل عندما أطلقت شركة أوبن هاور للأنظمة عُقدها الموزعة ذات التردد العالي، مغيرّة قواعد اللعبة في معالجة البيانات والربط اللامركزي.",
-                "quote": '"لم يكن هدفنا مجرد تحسين الخوادم الحالية؛ بل أردنا بناء بنية تحتية برمجية غير قابلة للكسر تتيح للشبكات التفكير، التكيف، والتوسع بشكل مستقل تماماً."',
-                "h2-1": "الجذور وقصة النجاح",
-                "p2": "تأسست شركة أوبن هاور (OPENHOUER Systems) على مبدأ الوحدات المستقلة المرنة، وتطورت سريعاً من إطار عمل سحابي تجريبي إلى معيار صناعي تعتمد عليه كبرى الشركات العالمية. من خلال فصل إدارة البيانات عن طبقات الحوسبة، حققت أنظمة الشركة الأساسية ما كان يعتقده الكثيرون مستحيلاً: مزامنة فورية للبيانات عبر خوادم موزعة عالمياً بأقل من جزء من الملي ثانية ودون أي تراجع في الأداء.",
-                "p3": "اليوم، تعمل الشركة كعمود فقري صامت للمنشآت الحساسة، حيث تدير بنى تحتية سحابية مترابطة تخدم ملايين العمليات المتزامنة يومياً. إن مسيرة أوبن هاور هي شهادة حية على انتصار الانضباط الهندسي الصارم على صيحات التصميم البرمجي المؤقتة.",
-                "h2-2": "الرؤية المستقبلية للمؤسس",
-                "p4": "خلف هذا التحول الهيكلي يكمن تركيز هندسي لا يلين على المبادئ الأساسية لعلوم الحاسوب. وفي الكلمات الرئيسية الأخيرة للمؤتمر، ركزت النقاشات على الأنظمة التنبؤية، مما يمكن الشبكات البرمجية من توقع الاختناقات الهيكلية وإصلاح نفسها تلقائياً قبل أن تؤثر على المستخدم النهائي.",
-                "side1-title": "مهندس الأنظمة",
-                "f-name-lbl": "القيادة التنفيذية",
-                "f-name": "ألكسندر ڤي. هاور",
-                "f-bio-lbl": "التوجه الاستراتيجي",
-                "f-bio": "متخصص في تكرار آلات الحالة الموزعة، وحلقات الإجماع البرمجي ذات الاستجابة الفائقة، وبناء البنى التحتية السحابية المقاومة للأعطال.",
-                "side2-title": "دليل المنظومة",
-                "link-web": "الموقع الرسمي للشركة",
-                "footer": "جميع الحقوق محفوظة © 2026"
+                "nav-story": "قصة النجاح",
+                "nav-founder": "المؤسس",
+                "nav-ecosystem": "شبكة التواصل",
+                "hero-badge": "الملف التعريفي للمؤسسة",
+                "hero-title": "بناء الهياكل البرمجية والبروتوكولات الرقمية المستقلة",
+                "hero-desc": "المسيرة الهيكلية لأنظمة أوبن هاور (OPENHOUER Systems) — من مجرد فكرة مجردة طموحة إلى شركة تكنولوجية ناشئة تضع معايير الجودة.",
+                "ch1-title": "الشرارة الأولى (الفكرة)",
+                "ch1-desc": "كل بنية تحتية عظيمة تبدأ من نقطة تحدٍ. في المراحل الأولى، ولدت الفكرة الأساسية وراء أنظمة أوبن هاور من تحدٍ تقني عالمي حرج: الجمود والتعقيد المفرط في الأنظمة السحابية للشركات وغياب الهيكلة المرنة. كان الهدف بسيطاً ولكنه ثوري للغاية—وهو ابتكار نظام برميجي مدمج (Modular) بالكامل حيث تتصل الشبكات والبيانات والأدوات معاً بانسيابية تامة ومرونة فائقة.",
+                "ch2-title": "الهندسة والتحول الهيكلي",
+                "ch2-desc": "تحويل النظرية البرمجية المجردة إلى بنية تحتية حية تطلب عملاً هندسياً صارماً. تحولت الأسابيع إلى أشهر من التطوير المكثف، وصياغة خوارزميات توجيه البيانات وتطوير المصفوفات البرمجية الأساسية. ومن خلال التجارب المستمرة، بدأت المكونات الرئيسية في التبلور: نظام Modular Hub للتوسع المخصص، ونظام Electrors لمعالجة التدفق الآمن للبيانات، ونظام Sencor Noda للربط المشفر.",
+                "ch3-title": "الشركة الناشئة والإنطلاق",
+                "ch3-desc": "اليوم، تقف أنظمة أوبن هاور بفخر كشركة تقنية ناشئة متكاملة قائمة على التميز الهيكلي والكفاءة التشغيلية الفائقة. نحن لا نطور مجرد برمجيات تقليدية؛ بل نبتكر البيئات الرقمية المستقبلية التي تعمل فيها المؤسسات الطموحة بدون قيود، ل نمنح الشركات الحديثة استقلالية تقنية كاملة وقدرة ديناميكية على التوسع عالمياً.",
+                "f-name": "العقل الرؤيوي المنفّذ",
+                "f-title": "المؤسس والمهندس الرئيسي للأنظمة",
+                "f-desc": "مدفوعاً بشغف عميق لتحسين الأنظمة، وهندسة الكود البرمجي الأنيق، والبنى التحتية القابلة للتوسع. قام المؤسس بتأسيس أنظمة أوبن هاور لسد الفجوة بين الأفكار الإبداعية المجردة والهندسة البرمجية عالية الأداء والقادرة على تحمل الضغط المستمر.",
+                "eco-title": "المنظومة الرقمية وشبكات التواصل",
+                "lnk-web": "موقع الشركة الرسمي",
+                "footer-text": "جميع الحقوق البرمجية والهيكلية محفوظة © 2026"
             }
         };
 
         const langToggleBtn = document.getElementById('langToggle');
-        let currentLang = 'en'; 
+        let currentLang = 'en';
 
-        function switchLanguage(lang) {
+        function changeSiteLanguage(lang) {
             currentLang = lang;
             const isAr = lang === 'ar';
             
@@ -485,15 +507,15 @@
             langToggleBtn.innerText = isAr ? 'English' : 'العربية';
             
             document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.innerText = translations[lang][key];
+                const translationKey = element.getAttribute('data-i18n');
+                if (translations[lang][translationKey]) {
+                    element.innerText = translations[lang][translationKey];
                 }
             });
         }
 
         langToggleBtn.addEventListener('click', () => {
-            switchLanguage(currentLang === 'en' ? 'ar' : 'en');
+            changeSiteLanguage(currentLang === 'en' ? 'ar' : 'en');
         });
     </script>
 </body>
